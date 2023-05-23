@@ -1,9 +1,7 @@
 import { isElementLoaded } from "@/utils/helper"
-import type { bbComment } from "@/types/bili"
+import type { bbComment, CreateListCon, CreateSubReplyItem } from "@/types/bili"
 
-type CreateListCon = bbComment["prototype"]["_createListCon"]
-type CreateSubReplyItem = bbComment["prototype"]["_createSubReplyItem"]
-
+type HooksFunc = CreateListCon | CreateSubReplyItem
 
 export const pageType = {
     "dynamic": Symbol("video"),
@@ -21,9 +19,9 @@ export const injectBbComment = async (type: Symbol) => {
     }
     const bbComment = window.bbComment
     if (!bbComment) throw Error("Can not detect bbComment")
-    const createListCon = bbComment.prototype._createListCon as CreateListCon
-    const createSubReplyItem = bbComment.prototype._createSubReplyItem as CreateSubReplyItem
-    const applyHandler = <T extends CreateListCon | CreateSubReplyItem>(target: T, thisArg: typeof bbComment, args: Parameters<T>) => {
+    const createListCon = bbComment.prototype._createListCon
+    const createSubReplyItem = bbComment.prototype._createSubReplyItem
+    const applyHandler = <T extends HooksFunc>(target: T, thisArg: bbComment, args: Parameters<T>) => {
         const [item] = args
         const result: string = Reflect.apply(target, thisArg, args)
         const replyTimeRegex = /<span class="reply-time">(.*?)<\/span>/

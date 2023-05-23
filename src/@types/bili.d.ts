@@ -1,9 +1,13 @@
 import type { Reply } from "./replyItem"
 
-interface bbComment {
+export type CreateListCon = (item: Reply, i: number, pos: number) => string
+
+export type CreateSubReplyItem = (item: Reply, i: number) => string
+
+export interface bbComment {
     prototype: {
-        _createListCon: (item: Reply, i: number, pos: number) => string,
-        _createSubReplyItem: (item: Reply, i: number) => string
+        _createListCon: CreateListCon,
+        _createSubReplyItem: CreateSubReplyItem
     }
 }
 
@@ -12,8 +16,5 @@ declare global {
         bbComment?: bbComment
     }
 }
-
-
-export { bbComment }
 
 
