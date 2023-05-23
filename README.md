@@ -5,7 +5,7 @@
 # 哔哩哔哩网页版展示 IP 属地
 # Bilibili-Web-Show-IP-Address
 
-我不喜欢 IP 属地，但是你手机都显示了，为什么电脑不显示呢？
+> 我不喜欢 IP 属地，但是你手机都显示了，为什么电脑不显示呢？
 
 目前支持的场景有：视频（普通视频、番剧（影视）、收藏列表）、动态评论区、个人主页动态。
 
@@ -19,7 +19,9 @@
 
 # 原理图
 
-<img src="./assets/diagram.png" width = "50%">
+<p align="center">
+    <img src="./assets/diagram.png" width = "50%">
+</p>
 
 # 感谢
 
