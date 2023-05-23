@@ -13,16 +13,16 @@
 
 个人主页动态使用了 [Navigation Property](https://developer.mozilla.org/en-US/docs/Web/API/Window/navigation) 兼容性可能存在问题，后期会寻找替代。
 
-# 安装
+## 安装
 
 [[Greasy Fork](https://greasyfork.org/zh-CN/scripts/466815)] [[Github Release](https://github.com/MaxChang3/Bilibili-Trackpad-Scroll-Reverser/releases/latest/download/bilibili-trackpad-scroll-reverser.user.js)]
 
-# 原理图
+## 原理图
 
 <p align="center">
     <img src="./assets/diagram.png" width = "50%">
 </p>
 
-# 感谢
+## 感谢
 
 参考了部分 [B站评论区开盒](https://greasyfork.org/zh-CN/scripts/448434) 的代码。
