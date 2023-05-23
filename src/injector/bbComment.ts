@@ -1,5 +1,5 @@
 import { isElementLoaded } from "@/utils/helper"
-import type { bbComment } from "@/@types/bili"
+import type { bbComment } from "@/types/bili"
 
 type CreateListCon = bbComment["prototype"]["_createListCon"]
 type CreateSubReplyItem = bbComment["prototype"]["_createSubReplyItem"]

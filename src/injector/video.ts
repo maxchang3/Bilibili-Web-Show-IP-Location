@@ -1,5 +1,5 @@
-import { ReplyItem } from "@/@types/replyItem"
 import { isElementLoaded } from "@/utils/helper"
+import type { ReplyItem } from "@/types/replyItem"
 
 
 const getIPAddress = (replyItemEl: HTMLDivElement): string => {

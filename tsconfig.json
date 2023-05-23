@@ -22,7 +22,10 @@
     "paths": {
       "@/*": [
         "src/*"
-      ]
+      ],
+      "@/types/*": [
+        "src/@types/*"
+      ],
     },
   },
   "include": [
