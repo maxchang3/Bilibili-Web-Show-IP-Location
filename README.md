@@ -15,7 +15,7 @@
 
 # 安装
 
-[Greasy Fork](https://greasyfork.org/zh-CN/scripts/466815)
+[[Greasy Fork](https://greasyfork.org/zh-CN/scripts/466815)] [[Github Release](https://github.com/MaxChang3/Bilibili-Trackpad-Scroll-Reverser/releases/latest/download/bilibili-trackpad-scroll-reverser.user.js)]
 
 # 原理图
 
