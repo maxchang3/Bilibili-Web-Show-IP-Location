@@ -20,7 +20,7 @@
 ## 原理图
 
 <p align="center">
-    <img src="./assets/diagram.png" width = "50%">
+    <img src="./assets/diagram.svg" width = "50%">
 </p>
 
 ## 感谢
