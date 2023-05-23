@@ -1,6 +1,7 @@
-<center>
+<p align="center">
     <img src="./assets/preview.png" width = "50%">
-</center>
+</p>
+
 # 哔哩哔哩网页版展示 IP 属地
 # Bilibili-Web-Show-IP-Address
 
