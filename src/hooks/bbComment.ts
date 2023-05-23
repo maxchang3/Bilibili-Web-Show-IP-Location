@@ -8,7 +8,7 @@ export const pageType = {
     "bangumi": Symbol("bangumi")
 }
 
-export const injectBbComment = async (type: Symbol) => {
+export const hookBbComment = async (type: Symbol) => {
     if (type === pageType.dynamic) {
         const dynBtn = await isElementLoaded('.bili-dyn-action.comment') as HTMLDivElement
         if (dynBtn) dynBtn.click() // 手工触发一个评论按钮，召唤出 bbComment

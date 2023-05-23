@@ -25,7 +25,7 @@ const isReplyItem = (el: Node): el is HTMLDivElement =>
     (el instanceof HTMLDivElement) && (["reply-item", "sub-reply-item"].includes(el.className))
 
 
-const setupObserver = async () => {
+export const observeVideoComments = async () => {
 
     const targetNode = await isElementLoaded('.reply-list')
 
@@ -53,8 +53,4 @@ const setupObserver = async () => {
     const observer = new MutationObserver(callback)
 
     observer.observe(targetNode, config)
-}
-
-export const injectVideoComments = () => {
-    setupObserver()
 }
