@@ -9,7 +9,7 @@
 
 目前支持的场景有：视频（普通视频、番剧（影视）、收藏列表）、动态评论区、个人主页动态。
 
-暂时未考虑浏览器兼容性问题，仅测试于 Chrome 113 / Safari 16.4。
+仅测试于 Chrome 113 / Safari 16.4。**需要使用支持 [unsafeWindow](https://www.tampermonkey.net/documentation.php#api:unsafeWindow) API 的插件**
 
 个人主页动态使用了 [Navigation Property](https://developer.mozilla.org/en-US/docs/Web/API/Window/navigation) 兼容性可能存在问题，后期会寻找替代。
 
