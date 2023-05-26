@@ -1,6 +1,6 @@
 import { isElementLoaded } from "@/utils/helper"
+import { unsafeWindow } from "$"
 import type { bbComment, CreateListCon, CreateSubReplyItem } from "@/types/bili"
-
 type HooksFunc = CreateListCon | CreateSubReplyItem
 
 export const pageType = {
@@ -17,7 +17,7 @@ export const hookBbComment = async (type: Symbol) => {
     } else if (type === pageType.bangumi) {
         await isElementLoaded('.bb-comment')
     }
-    const bbComment = window.bbComment
+    const bbComment = unsafeWindow.bbComment
     if (!bbComment) throw Error("Can not detect bbComment")
     const createListCon = bbComment.prototype._createListCon
     const createSubReplyItem = bbComment.prototype._createSubReplyItem
