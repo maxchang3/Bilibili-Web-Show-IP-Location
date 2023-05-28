@@ -5,7 +5,8 @@ import { once } from "@/utils/helper"
 const matchPrefix = (url: string) => {
   if (
     url.startsWith("https://www.bilibili.com/video/") ||
-    url.startsWith("https://www.bilibili.com/list/")
+    url.startsWith("https://www.bilibili.com/list/") ||
+    url.startsWith("https://www.bilibili.com/opus/")
   ) {
     observeVideoComments()
   } else if (url.startsWith("https://www.bilibili.com/bangumi/play/")) {

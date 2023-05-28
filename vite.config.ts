@@ -23,6 +23,7 @@ export default defineConfig({
           "https://www.bilibili.com/list/*",
           "https://www.bilibili.com/bangumi/play/*",
           "https://t.bilibili.com/*",
+          "https://www.bilibili.com/opus/*",
           "https://space.bilibili.com/*",
         ],
         "run-at": "document-body",
