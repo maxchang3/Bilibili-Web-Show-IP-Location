@@ -4,7 +4,7 @@ import type { bbComment, CreateListCon, CreateSubReplyItem } from "@/types/bili"
 type HooksFunc = CreateListCon | CreateSubReplyItem
 
 export const pageType = {
-    "dynamic": Symbol("video"),
+    "dynamic": Symbol("dynamic"),
     "bangumi": Symbol("bangumi")
 }
 
