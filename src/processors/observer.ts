@@ -25,7 +25,7 @@ const isReplyItem = (el: Node): el is HTMLDivElement =>
     (el instanceof HTMLDivElement) && (["reply-item", "sub-reply-item"].includes(el.className))
 
 
-export const observeVideoComments = async () => {
+export const observeAndInjectComments = async () => {
 
     const targetNode = await isElementLoaded('.reply-list')
 
