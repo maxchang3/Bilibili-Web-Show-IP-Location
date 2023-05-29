@@ -14,3 +14,6 @@ export const isElementLoaded = async (selector: string) => {
     return document.querySelector(selector)
 }
 
+
+export const startsWithAny = (str: string, prefixes: string[]) =>
+    prefixes.some(prefix => str.startsWith(prefix))

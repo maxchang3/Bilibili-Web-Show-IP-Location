@@ -1,12 +1,13 @@
 import { observeAndInjectComments } from "@/processors/observer"
 import { hookBbComment, pageType } from "@/processors/hook"
-import { once } from "@/utils/helper"
+import { once, startsWithAny } from "@/utils/helper"
 
 const matchPrefix = (url: string) => {
-  if (
-    url.startsWith("https://www.bilibili.com/video/") || // video
-    url.startsWith("https://www.bilibili.com/list/") || // new media list (favlist)
-    url.startsWith("https://www.bilibili.com/opus/") // new single dynamic page
+  if (startsWithAny(url, [
+    "https://www.bilibili.com/video/", // video
+    "https://www.bilibili.com/list/", // new media list (favlist)
+    "https://www.bilibili.com/opus/", // new single dynamic page
+  ])
   ) {
     observeAndInjectComments()
   } else if (url.startsWith("https://www.bilibili.com/bangumi/play/")) {
