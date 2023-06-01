@@ -11,8 +11,8 @@ devDependencies:
     specifier: ^4.3.5
     version: 4.3.5(@types/node@20.2.3)
   vite-plugin-monkey:
-    specifier: ^3.2.0
-    version: 3.2.0(vite@4.3.5)
+    specifier: ^3.2.2
+    version: 3.2.2(vite@4.3.5)
 
 packages:
 
@@ -448,8 +448,8 @@ packages:
     hasBin: true
     dev: true
 
-  /vite-plugin-monkey@3.2.0(vite@4.3.5):
-    resolution: {integrity: sha512-zXnDyDRmyelmAMZG5anbUdkRmynXpnvAnRCapEWKTdHF99bgT+XXa5LOJCdg/6kyddPcRyt2KCKI8fom+A0mFw==}
+  /vite-plugin-monkey@3.2.2(vite@4.3.5):
+    resolution: {integrity: sha512-h4pcTAVelBG3AYyMMAZu8tKLVo6Oeycul5MHkNOuvSusMq7Cm08q/VMG7eDZlFw1/Vww2Z6O242F1rGCQ1iHAQ==}
     engines: {node: ^14.18 || >= 16, pnpm: '>=6'}
     peerDependencies:
       vite: '>=3.0.0'
