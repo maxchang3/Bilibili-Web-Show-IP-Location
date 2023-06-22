@@ -7,7 +7,7 @@ export const once = <A extends any[], R, T>(
     }
 }
 
-export const isElementLoaded = async (selector: string, root: HTMLElement | Document = document) => {
+export const isElementLoaded = async (selector: string, root: HTMLElement | Document | Element = document) => {
     while (root.querySelector(selector) === null) {
         await new Promise(resolve => requestAnimationFrame(resolve))
     }

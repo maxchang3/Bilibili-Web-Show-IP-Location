@@ -1,8 +1,8 @@
 import { observeAndInjectComments } from "@/processors/observer"
 import { hookBbComment, pageType } from "@/processors/hook"
-import { once, startsWithAny } from "@/utils/helper"
+import { isElementLoaded, once, startsWithAny } from "@/utils/helper"
 
-const matchPrefix = (url: string) => {
+const matchPrefix = async (url: string) => {
   if (startsWithAny(url, [
     "https://www.bilibili.com/video/", // video
     "https://www.bilibili.com/list/", // new media list (favlist)
@@ -13,7 +13,6 @@ const matchPrefix = (url: string) => {
   } else if (url.startsWith("https://www.bilibili.com/bangumi/play/")) {
     hookBbComment(pageType.bangumi)
   } else if (
-    url.startsWith("https://t.bilibili.com") ||
     url.startsWith("https://space.bilibili.com/") && url.endsWith("dynamic") ||
     url.startsWith("https://www.bilibili.com/v/topic/detail/")
   ) {
@@ -26,6 +25,30 @@ const matchPrefix = (url: string) => {
         onceInject()
       }
     })
+  } else if (url.startsWith("https://t.bilibili.com")) {
+    const dynHome = await isElementLoaded('.bili-dyn-home--member')
+    if (!dynHome) throw new Error('Can not detect dynamic home element loaded')
+    const isNewDyn = (dynHome.querySelector('.bili-dyn-sidebar__btn') as HTMLElement || undefined)?.innerText === "新版反馈"
+    if (isNewDyn) {
+      const dynList = await isElementLoaded('.bili-dyn-list', dynHome)
+      if (!dynList) throw new Error('Can not detect dynamic list element loaded')
+      const observedLists = new Map()
+      const observer = new MutationObserver((mutationsList) => {
+        for (let mutation of mutationsList) {
+          if (
+            mutation.type !== 'childList' ||
+            !(mutation.target instanceof HTMLElement) ||
+            !mutation.target.classList.contains('bili-comment-container') ||
+            observedLists.get(mutation.target)
+          ) continue
+          observeAndInjectComments(mutation.target)
+          observedLists.set(mutation.target, true)
+        }
+      })
+      observer.observe(dynList, { childList: true, subtree: true })
+    } else {
+      hookBbComment(pageType.dynamic)
+    }
   }
 }
 
