@@ -25,7 +25,7 @@ const matchPrefix = async (url: string) => {
         onceInject()
       }
     })
-  } else if (url.startsWith("https://t.bilibili.com")) {
+  } else if (url === "https://t.bilibili.com/") { // 动态主页
     const dynHome = await isElementLoaded('.bili-dyn-home--member')
     if (!dynHome) throw new Error('Can not detect dynamic home element loaded')
     const isNewDyn = (dynHome.querySelector('.bili-dyn-sidebar__btn') as HTMLElement || undefined)?.innerText === "新版反馈"
@@ -46,6 +46,17 @@ const matchPrefix = async (url: string) => {
         }
       })
       observer.observe(dynList, { childList: true, subtree: true })
+    } else {
+      hookBbComment(pageType.dynamic)
+    }
+  } else if (url.startsWith("https://t.bilibili.com/")) { // 单独动态页
+    const dynItem = await isElementLoaded('.bili-dyn-item')
+    if (!dynItem) throw Error("Can not detect dynamic item element loaded")
+    const isNewDyn = !!dynItem.querySelector('.bili-comment-container')
+    if (isNewDyn) {
+      const commentContainer = await isElementLoaded('.bili-comment-container', dynItem) as HTMLElement || null
+      if (!commentContainer) throw Error("Can not detect comment container loaded")
+      observeAndInjectComments(commentContainer)
     } else {
       hookBbComment(pageType.dynamic)
     }
