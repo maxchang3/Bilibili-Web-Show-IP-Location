@@ -25,9 +25,9 @@ const isReplyItem = (el: Node): el is HTMLDivElement =>
     (el instanceof HTMLDivElement) && (["reply-item", "sub-reply-item"].includes(el.className))
 
 
-export const observeAndInjectComments = async () => {
+export const observeAndInjectComments = async (root?: HTMLElement) => {
 
-    const targetNode = await isElementLoaded('.reply-list')
+    const targetNode = await isElementLoaded('.reply-list', root)
 
     if (!targetNode) throw Error("Can not detect target node")
 

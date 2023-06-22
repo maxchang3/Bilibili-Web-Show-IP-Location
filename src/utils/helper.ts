@@ -7,11 +7,11 @@ export const once = <A extends any[], R, T>(
     }
 }
 
-export const isElementLoaded = async (selector: string) => {
-    while (document.querySelector(selector) === null) {
+export const isElementLoaded = async (selector: string, root: HTMLElement | Document = document) => {
+    while (root.querySelector(selector) === null) {
         await new Promise(resolve => requestAnimationFrame(resolve))
     }
-    return document.querySelector(selector)
+    return root.querySelector(selector)
 }
 
 
