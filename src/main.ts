@@ -28,7 +28,7 @@ const matchPrefix = async (url: string) => {
   } else if (url === "https://t.bilibili.com/") { // 动态主页
     const dynHome = await isElementLoaded('.bili-dyn-home--member')
     if (!dynHome) throw new Error('Can not detect dynamic home element loaded')
-    const isNewDyn = (dynHome.querySelector('.bili-dyn-sidebar__btn') as HTMLElement || undefined)?.innerText === "新版反馈"
+    const isNewDyn = (dynHome.querySelector('.bili-dyn-sidebar__btn') as HTMLElement || undefined)?.innerText.startsWith("新版反馈")
     if (isNewDyn) {
       const dynList = await isElementLoaded('.bili-dyn-list', dynHome)
       if (!dynList) throw new Error('Can not detect dynamic list element loaded')
