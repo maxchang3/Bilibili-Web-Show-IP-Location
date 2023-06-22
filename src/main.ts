@@ -14,7 +14,8 @@ const matchPrefix = (url: string) => {
     hookBbComment(pageType.bangumi)
   } else if (
     url.startsWith("https://t.bilibili.com") ||
-    url.startsWith("https://space.bilibili.com/") && url.endsWith("dynamic")
+    url.startsWith("https://space.bilibili.com/") && url.endsWith("dynamic") ||
+    url.startsWith("https://www.bilibili.com/v/topic/detail/")
   ) {
     hookBbComment(pageType.dynamic)
   } else if (url.startsWith("https://space.bilibili.com/")) {
