@@ -26,17 +26,11 @@ const isReplyItem = (el: Node): el is HTMLDivElement =>
 
 
 export const observeAndInjectComments = async (root?: HTMLElement) => {
-
     const targetNode = await isElementLoaded('.reply-list', root)
-
     if (!targetNode) throw Error("Can not detect target node")
-
-    const config: MutationObserverInit = { attributes: true, childList: true, subtree: true }
-
-    const callback: MutationCallback = (mutationsList) => {
+    const observer = new MutationObserver((mutationsList) => {
         for (let mutation of mutationsList) {
             if (mutation.type !== 'childList') continue
-
             mutation.addedNodes.forEach(node => {
                 if (!(isReplyItem(node))) return
                 insertPAddressEl(node)
@@ -48,9 +42,6 @@ export const observeAndInjectComments = async (root?: HTMLElement) => {
                 subReplyList.map(insertPAddressEl)
             })
         }
-    }
-
-    const observer = new MutationObserver(callback)
-
-    observer.observe(targetNode, config)
+    })
+    observer.observe(targetNode, { childList: true, subtree: true })
 }
