@@ -27,7 +27,6 @@ const isReplyItem = (el: Node): el is HTMLDivElement =>
 
 export const observeAndInjectComments = async (root?: HTMLElement) => {
     const targetNode = await isElementLoaded('.reply-list', root)
-    if (!targetNode) throw Error("Can not detect target node")
     const observer = new MutationObserver((mutationsList) => {
         for (let mutation of mutationsList) {
             if (mutation.type !== 'childList') continue
