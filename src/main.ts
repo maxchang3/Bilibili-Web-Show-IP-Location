@@ -51,7 +51,7 @@ const matchPrefix = async (url: string) => {
     const dynItem = await isElementLoaded('.bili-dyn-item')
     const isNewDyn = !!dynItem.querySelector('.bili-comment-container')
     if (isNewDyn) {
-      const commentContainer = await isElementLoaded('.bili-comment-container', dynItem) as HTMLElement || null
+      const commentContainer = await isElementLoaded('.bili-comment-container', dynItem) as HTMLElement
       observeAndInjectComments(commentContainer)
     } else {
       hookBbComment(pageType.dynamic)
