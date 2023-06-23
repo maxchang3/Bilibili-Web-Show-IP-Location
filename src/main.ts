@@ -1,6 +1,6 @@
 import { observeAndInjectComments } from "@/processors/observer"
 import { hookBbComment, pageType } from "@/processors/hook"
-import { isElementLoaded, once, startsWithAny } from "@/utils/helper"
+import { isElementLoaded, startsWithAny } from "@/utils/helper"
 
 const matchPrefix = async (url: string) => {
   if (startsWithAny(url, [
@@ -18,13 +18,10 @@ const matchPrefix = async (url: string) => {
   ) {
     hookBbComment(pageType.dynamic)
   } else if (url.startsWith("https://space.bilibili.com/")) {
-    const onceInject = once(() => hookBbComment(pageType.dynamic))
-    // @ts-ignore
-    window.navigation && window.navigation.addEventListener('navigate', e => {
-      if (e.destination.url.endsWith("dynamic") && e.destination.url !== location.href) {
-        onceInject()
-      }
-    })
+    const dynamicTab = await isElementLoaded('.n-dynamic')
+    dynamicTab.addEventListener('click', () => {
+      hookBbComment(pageType.dynamic)
+    }, { once: true })
   } else if (url === "https://t.bilibili.com/") { // 动态主页
     const dynHome = await isElementLoaded('.bili-dyn-home--member')
     const isNewDyn = (dynHome.querySelector('.bili-dyn-sidebar__btn') as HTMLElement || undefined)?.innerText.startsWith("新版反馈")
