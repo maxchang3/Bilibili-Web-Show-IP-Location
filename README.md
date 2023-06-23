@@ -11,7 +11,6 @@
 
 仅测试于 Chrome 113+ ([tampermonkey](https://github.com/Tampermonkey/tampermonkey)) / Safari 16.4+ ([Stay](https://github.com/shenruisi/Stay))。**需要使用支持 [unsafeWindow](https://www.tampermonkey.net/documentation.php#api:unsafeWindow) API 的脚本管理器**
 
-个人主页动态使用了 [Navigation Property](https://developer.mozilla.org/en-US/docs/Web/API/Window/navigation) 兼容性可能存在问题，后期会寻找替代。
 
 ## 安装
 
