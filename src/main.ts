@@ -30,17 +30,17 @@ const matchPrefix = async (url: string) => {
     const isNewDyn = (dynHome.querySelector('.bili-dyn-sidebar__btn') as HTMLElement || undefined)?.innerText.startsWith("新版反馈")
     if (isNewDyn) {
       const dynList = await isElementLoaded('.bili-dyn-list', dynHome)
-      const observedLists = new Map()
+      let lastObserved: HTMLElement
       const observer = new MutationObserver((mutationsList) => {
         for (let mutation of mutationsList) {
           if (
             mutation.type !== 'childList' ||
             !(mutation.target instanceof HTMLElement) ||
             !mutation.target.classList.contains('bili-comment-container') ||
-            observedLists.get(mutation.target)
+            mutation.target === lastObserved
           ) continue
           observeAndInjectComments(mutation.target)
-          observedLists.set(mutation.target, true)
+          lastObserved = mutation.target
         }
       })
       observer.observe(dynList, { childList: true, subtree: true })
