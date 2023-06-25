@@ -1,4 +1,4 @@
-export const isElementLoaded = async (selector: string, root: HTMLElement | Document | Element = document, timeout: number = 5000) => {
+export const isElementLoaded = async (selector: string, root: HTMLElement | Document | Element = document, timeout: number = 1e4) => {
     const start = Date.now()
     while (root.querySelector(selector) === null) {
         if (Date.now() - start > timeout) throw new Error(`Timeout: ${timeout}ms exceeded`)
