@@ -25,7 +25,8 @@ export default defineConfig({
           "https://t.bilibili.com/*",
           "https://www.bilibili.com/opus/*",
           "https://space.bilibili.com/*",
-          "https://www.bilibili.com/v/topic/detail/*"
+          "https://www.bilibili.com/v/topic/detail/*",
+          "https://www.bilibili.com/cheese/play/*"
         ],
         "run-at": "document-body",
         "license": "MIT",

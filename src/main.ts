@@ -7,6 +7,7 @@ const matchPrefix = async (url: string) => {
     "https://www.bilibili.com/video/", // video
     "https://www.bilibili.com/list/", // new media list (favlist)
     "https://www.bilibili.com/opus/", // new single dynamic page
+    "https://www.bilibili.com/cheese/play/"
   ])
   ) {
     observeAndInjectComments()
