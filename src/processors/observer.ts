@@ -8,7 +8,7 @@ const getIPAddress = (replyItemEl: HTMLDivElement): string => {
             ? replyItemEl.querySelector('.reply-content')
             : replyItemEl
     ) as ReplyItem)?.__vnode?.ctx?.props?.reply?.reply_control?.location
-    return IPString ? `&nbsp;&nbsp;${IPString}` : ""
+    return `&nbsp;&nbsp;${IPString ?? "IP属地：未知"}`
 }
 
 

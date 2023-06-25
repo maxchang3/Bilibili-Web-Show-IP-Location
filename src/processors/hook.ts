@@ -25,7 +25,7 @@ export const hookBbComment = async (type: Symbol) => {
         const [item] = args
         const result: string = Reflect.apply(target, thisArg, args)
         const replyTimeRegex = /<span class="reply-time">(.*?)<\/span>/
-        return result.replace(replyTimeRegex, `<span class="reply-time">$1&nbsp;&nbsp;${item.reply_control.location}</span>`)
+        return result.replace(replyTimeRegex, `<span class="reply-time">$1&nbsp;&nbsp;${item.reply_control.location ?? "IP属地：未知"}</span>`)
     }
     bbComment.prototype._createListCon = new Proxy(createListCon, { apply: applyHandler })
     bbComment.prototype._createSubReplyItem = new Proxy(createSubReplyItem, { apply: applyHandler })
