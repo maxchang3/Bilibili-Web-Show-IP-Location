@@ -4,21 +4,21 @@ import { isElementLoaded, startsWithAny } from "@/utils/helper"
 
 const matchPrefix = async (url: string) => {
   if (startsWithAny(url, [
-    "https://www.bilibili.com/video/", // video
-    "https://www.bilibili.com/list/", // new media list (favlist)
-    "https://www.bilibili.com/opus/", // new single dynamic page
-    "https://www.bilibili.com/cheese/play/"
+    "https://www.bilibili.com/video/", // 视频
+    "https://www.bilibili.com/list/", // 新列表
+    "https://www.bilibili.com/opus/", // 新版单独动态页
+    "https://www.bilibili.com/cheese/play/" // 课程页
   ])
   ) {
     observeAndInjectComments()
   } else if (url.startsWith("https://www.bilibili.com/bangumi/play/")) {
     hookBbComment(pageType.bangumi)
   } else if (
-    url.startsWith("https://space.bilibili.com/") && url.endsWith("dynamic") ||
-    url.startsWith("https://www.bilibili.com/v/topic/detail/")
+    url.startsWith("https://space.bilibili.com/") && url.endsWith("dynamic") || // 个人空间动态页
+    url.startsWith("https://www.bilibili.com/v/topic/detail/") // 话题页
   ) {
     hookBbComment(pageType.dynamic)
-  } else if (url.startsWith("https://space.bilibili.com/")) {
+  } else if (url.startsWith("https://space.bilibili.com/")) { // 个人空间
     const dynamicTab = await isElementLoaded('.n-dynamic')
     dynamicTab.addEventListener('click', () => {
       hookBbComment(pageType.dynamic)
