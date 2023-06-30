@@ -25,7 +25,7 @@ const matchPrefix = async (url: string) => {
     }, { once: true })
   } else if (url === "https://t.bilibili.com/") { // 动态主页
     const dynHome = await isElementLoaded('.bili-dyn-home--member')
-    const isNewDyn = (dynHome.querySelector('.bili-dyn-sidebar__btn') as HTMLElement || undefined)?.innerText.startsWith("新版反馈")
+    const isNewDyn = (dynHome.querySelector('.bili-dyn-sidebar__btn') as HTMLElement | undefined)?.innerText.startsWith("新版反馈")
     if (isNewDyn) {
       const dynList = await isElementLoaded('.bili-dyn-list', dynHome)
       let lastObserved: HTMLElement
