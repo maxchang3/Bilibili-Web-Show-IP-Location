@@ -1,4 +1,5 @@
 <p align="center">
+    <img src="./assets/banner.jpg" width = "50%">
     <img src="./assets/preview.png" width = "50%">
 </p>
 
