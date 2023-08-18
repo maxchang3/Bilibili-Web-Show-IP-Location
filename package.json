@@ -12,6 +12,6 @@
     "@types/node": "^20.2.3",
     "typescript": "^5.0.4",
     "vite": "^4.3.5",
-    "vite-plugin-monkey": "^3.2.2"
+    "vite-plugin-monkey": "^3.4.1"
   }
 }
