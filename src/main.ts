@@ -23,7 +23,7 @@ const matchPrefix = async (url: string) => {
     dynamicTab.addEventListener('click', () => {
       hookBbComment(pageType.dynamic)
     }, { once: true })
-  } else if (url === "https://t.bilibili.com/" || url === "https://t.bilibili.com/?") { // 动态主页
+  } else if (url.startsWith("https://t.bilibili.com/") && location.pathname === '/' ) { // 动态主页
     const dynHome = await isElementLoaded('.bili-dyn-home--member')
     const isNewDyn = (dynHome.querySelector('.bili-dyn-sidebar__btn') as HTMLElement | undefined)?.innerText.startsWith("新版反馈")
     if (isNewDyn) {
