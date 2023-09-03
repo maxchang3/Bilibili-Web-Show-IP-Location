@@ -4,6 +4,11 @@ settings:
   autoInstallPeers: true
   excludeLinksFromLockfile: false
 
+dependencies:
+  '@elliotdong/ajax-interceptor':
+    specifier: ^0.1.2
+    version: 0.1.2
+
 devDependencies:
   '@types/node':
     specifier: ^20.2.3
@@ -19,6 +24,10 @@ devDependencies:
     version: 3.4.1(vite@4.3.5)
 
 packages:
+
+  /@elliotdong/ajax-interceptor@0.1.2:
+    resolution: {integrity: sha512-tTZnMrok9J88/8pKHnnlLgZvT8TlDXSYNMPokAVamTfL0Re1Wb+5sHTBGDBWNv8swedISW/1ydVU9Z9aYIzZzg==}
+    dev: false
 
   /@esbuild/android-arm64@0.17.19:
     resolution: {integrity: sha512-KBMWvEZooR7+kzY0BtbTQn0OAYY7CsiydT63pVEaPtVYF0hXbUaOyZog37DKxK7NF3XacBJOpYT4adIJh+avxA==}

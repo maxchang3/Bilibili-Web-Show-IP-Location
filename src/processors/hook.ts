@@ -1,7 +1,19 @@
-import { isElementLoaded } from "@/utils/helper"
 import { unsafeWindow } from "$"
+import { intercept, addBeforeRequestInterceptor, defineRequestInit } from '@elliotdong/ajax-interceptor'
+import { isElementLoaded } from "@/utils/helper"
 import type { bbComment, CreateListCon, CreateSubReplyItem } from "@/types/bili"
+
 type HooksFunc = CreateListCon | CreateSubReplyItem
+
+const hookCommentFetch = () => {
+    intercept(unsafeWindow)
+    addBeforeRequestInterceptor(async (requestInit) => {
+        if (requestInit.url?.startsWith('https://api.bilibili.com/x/v2/reply/wbi/main')) {
+            requestInit.credentials = 'include'
+        }
+        return defineRequestInit(requestInit)
+    })
+}
 
 export const pageType = {
     "dynamic": Symbol("dynamic"),
@@ -9,6 +21,7 @@ export const pageType = {
 }
 
 export const hookBbComment = async (type: Symbol) => {
+    hookCommentFetch()
     if (type === pageType.dynamic) {
         const dynBtn = await isElementLoaded('.bili-dyn-action.comment') as HTMLDivElement
         if (dynBtn) dynBtn.click() // 手工触发一个评论按钮，召唤出 bbComment
