@@ -1,7 +1,6 @@
 import { observeAndInjectComments } from "@/processors/observer"
 import { hookBbComment, pageType } from "@/processors/hook"
 import { isElementLoaded, startsWithAny } from "@/utils/helper"
-import { unsafeWindow } from "$"
 
 const matchPrefix = async (url: string) => {
   if (startsWithAny(url, [
@@ -13,7 +12,7 @@ const matchPrefix = async (url: string) => {
   ) {
     observeAndInjectComments()
   } else if (url.startsWith("https://www.bilibili.com/bangumi/play/")) {
-    const isNewBangumi = !!unsafeWindow.__NEXT_DATA__
+    const isNewBangumi = !!document.querySelector("meta[name=next-head-count]")
     if (isNewBangumi) {
       observeAndInjectComments()
     } else {
