@@ -28,15 +28,10 @@ export default defineConfig({
           "https://www.bilibili.com/v/topic/detail/*",
           "https://www.bilibili.com/cheese/play/*"
         ],
-        "run-at": "document-body",
+        "run-at": "document-start",
         "license": "MIT",
         "description": "我不喜欢 IP 属地，但是你手机都显示了，为什么电脑不显示呢？目前仅视频、动态评论区"
       },
-      build: {
-        externalGlobals: [
-          ['@elliotdong/ajax-interceptor', cdn.unpkg('interceptor', 'dist/index.umd.cjs')]
-        ]
-      }
     }),
   ],
 })

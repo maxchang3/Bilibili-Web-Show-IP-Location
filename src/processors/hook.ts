@@ -1,18 +1,24 @@
 import { unsafeWindow } from "$"
-import { intercept, addBeforeRequestInterceptor, defineRequestInit } from '@elliotdong/ajax-interceptor'
 import { isElementLoaded } from "@/utils/helper"
 import type { bbComment, CreateListCon, CreateSubReplyItem } from "@/types/bili"
 
 type HooksFunc = CreateListCon | CreateSubReplyItem
 
 const hookCommentXHR = () => {
-    intercept(unsafeWindow)
-    addBeforeRequestInterceptor(async (requestInit) => {
-        if (requestInit.url?.startsWith('https://api.bilibili.com/x/v2/reply/wbi/main')) {
-            requestInit.credentials = 'include'
+    const originalXHR = unsafeWindow.XMLHttpRequest
+    class newXHR extends originalXHR {
+        constructor() {
+            super()
         }
-        return defineRequestInit(requestInit)
-    })
+        open(method: string, url: string) {
+            if(url.startsWith('https://api.bilibili.com/x/v2/reply/wbi/main')) {
+                this.withCredentials = true
+            }
+            super.open(method, url)
+        }
+    }
+    unsafeWindow.XMLHttpRequest = newXHR
+    console.log('hooked', originalXHR, unsafeWindow.XMLHttpRequest)
 }
 
 export const pageType = {
