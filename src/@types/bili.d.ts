@@ -14,6 +14,7 @@ export interface bbComment {
 declare global {
     interface Window {
         bbComment?: bbComment
+        __NEXT_DATA__?: any
     }
 }
 

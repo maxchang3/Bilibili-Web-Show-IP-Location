@@ -5,7 +5,7 @@ import type { bbComment, CreateListCon, CreateSubReplyItem } from "@/types/bili"
 
 type HooksFunc = CreateListCon | CreateSubReplyItem
 
-const hookCommentFetch = () => {
+const hookCommentXHR = () => {
     intercept(unsafeWindow)
     addBeforeRequestInterceptor(async (requestInit) => {
         if (requestInit.url?.startsWith('https://api.bilibili.com/x/v2/reply/wbi/main')) {
@@ -21,7 +21,7 @@ export const pageType = {
 }
 
 export const hookBbComment = async (type: Symbol) => {
-    hookCommentFetch()
+    hookCommentXHR()
     if (type === pageType.dynamic) {
         const dynBtn = await isElementLoaded('.bili-dyn-action.comment') as HTMLDivElement
         if (dynBtn) dynBtn.click() // 手工触发一个评论按钮，召唤出 bbComment

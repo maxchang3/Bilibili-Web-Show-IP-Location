@@ -1,6 +1,7 @@
 import { observeAndInjectComments } from "@/processors/observer"
 import { hookBbComment, pageType } from "@/processors/hook"
 import { isElementLoaded, startsWithAny } from "@/utils/helper"
+import { unsafeWindow } from "$"
 
 const matchPrefix = async (url: string) => {
   if (startsWithAny(url, [
@@ -12,7 +13,12 @@ const matchPrefix = async (url: string) => {
   ) {
     observeAndInjectComments()
   } else if (url.startsWith("https://www.bilibili.com/bangumi/play/")) {
-    hookBbComment(pageType.bangumi)
+    const isNewBangumi = !!unsafeWindow.__NEXT_DATA__
+    if (isNewBangumi) {
+      observeAndInjectComments()
+    } else {
+      hookBbComment(pageType.bangumi)
+    }
   } else if (
     url.startsWith("https://space.bilibili.com/") && url.endsWith("dynamic") || // 个人空间动态页
     url.startsWith("https://www.bilibili.com/v/topic/detail/") // 话题页
