@@ -13,5 +13,8 @@
     "typescript": "^5.0.4",
     "vite": "^4.3.5",
     "vite-plugin-monkey": "^3.4.1"
+  },
+  "dependencies": {
+    "@elliotdong/ajax-interceptor": "^0.1.2"
   }
 }
