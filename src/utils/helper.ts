@@ -1,10 +1,19 @@
-export const isElementLoaded = async (selector: string, root: HTMLElement | Document | Element = document, timeout: number = 1e4) => {
-    const start = Date.now()
-    while (root.querySelector(selector) === null) {
-        if (Date.now() - start > timeout) throw new Error(`Timeout: ${timeout}ms exceeded`)
-        await new Promise(resolve => requestAnimationFrame(resolve))
-    }
-    return root.querySelector(selector) as Element
+export const isElementLoaded = async (selector: string, root: HTMLElement | Document | Element = document) => {
+    const getElement = () => root.querySelector(selector) as Element
+    return new Promise<Element>(resolve => {
+        const element = getElement()
+        if (element) return resolve(element)
+        const observer = new MutationObserver(_ => {
+            const element = getElement()
+            if (!element) return
+            resolve(element)
+            observer.disconnect()
+        })
+        observer.observe(root === document ? root.body : root, {
+            childList: true,
+            subtree: true
+        })
+    })
 }
 
 
