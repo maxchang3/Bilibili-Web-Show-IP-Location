@@ -1,6 +1,7 @@
 import { unsafeWindow } from "$"
 import { isElementLoaded } from "@/utils/helper"
 import type { bbComment, CreateListCon, CreateSubReplyItem } from "@/types/bili"
+import { getLocationString } from "@/utils/location"
 
 type HooksFunc = CreateListCon | CreateSubReplyItem
 
@@ -11,7 +12,7 @@ const hookCommentXHR = () => {
             super()
         }
         open(method: string, url: string) {
-            if(url.startsWith('https://api.bilibili.com/x/v2/reply/wbi/main')) {
+            if (url.startsWith('https://api.bilibili.com/x/v2/reply/wbi/main')) {
                 this.withCredentials = true
             }
             super.open(method, url)
@@ -44,7 +45,7 @@ export const hookBbComment = async (type: Symbol) => {
         const [item] = args
         const result: string = Reflect.apply(target, thisArg, args)
         const replyTimeRegex = /<span class="reply-time">(.*?)<\/span>/
-        return result.replace(replyTimeRegex, `<span class="reply-time">$1&nbsp;&nbsp;${item.reply_control.location ?? "IP属地：未知"}</span>`)
+        return result.replace(replyTimeRegex, `<span class="reply-time">$1&nbsp;&nbsp;${getLocationString(item)}</span>`)
     }
     bbComment.prototype._createListCon = new Proxy(createListCon, { apply: applyHandler })
     bbComment.prototype._createSubReplyItem = new Proxy(createSubReplyItem, { apply: applyHandler })

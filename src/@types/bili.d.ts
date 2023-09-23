@@ -1,4 +1,4 @@
-import type { Reply } from "./replyItem"
+import type { Reply } from "./reply"
 
 export type CreateListCon = (item: Reply, i: number, pos: number) => string
 

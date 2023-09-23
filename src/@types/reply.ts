@@ -239,7 +239,7 @@ export interface Reply {
     dynamic_id_str: string
 }
 
-export interface ReplyItem extends HTMLDivElement {
+export interface ReplyElement extends HTMLDivElement {
     __vnode: {
         ctx: {
             props: {

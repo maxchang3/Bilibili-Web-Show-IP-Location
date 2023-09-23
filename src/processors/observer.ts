@@ -1,23 +1,23 @@
 import { isElementLoaded } from "@/utils/helper"
-import type { ReplyItem } from "@/types/replyItem"
+import type { ReplyElement } from "@/types/reply"
+import { getLocationString } from "@/utils/location"
 
 
-const getIPAddress = (replyItemEl: HTMLDivElement): string => {
-    const IPString: string | undefined = ((
-        replyItemEl.className.startsWith("sub")
-            ? replyItemEl.querySelector('.reply-content')
-            : replyItemEl
-    ) as ReplyItem)?.__vnode?.ctx?.props?.reply?.reply_control?.location
-    return `&nbsp;&nbsp;${IPString ?? "IP属地：未知"}`
+const getLocationFromElement = (replyItemEl: HTMLDivElement): string => {
+    const locationElement = (replyItemEl.className.startsWith("sub")
+        ? replyItemEl.querySelector('.reply-content')
+        : replyItemEl) as ReplyElement | undefined
+    const locationString = getLocationString(locationElement?.__vnode?.ctx?.props?.reply)
+    return `&nbsp;&nbsp;${locationString}`
 }
 
 
-const insertPAddressEl = (replyItemEl: HTMLDivElement) => {
+const insertLocation = (replyItemEl: HTMLDivElement) => {
     const replyInfo = replyItemEl.className.startsWith("sub")
         ? replyItemEl.querySelector('.sub-reply-info')
         : replyItemEl.querySelector('.reply-info')
     if (!replyInfo) throw Error('Can not detect reply info')
-    replyInfo.children[0].innerHTML += getIPAddress(replyItemEl)
+    replyInfo.children[0].innerHTML += getLocationFromElement(replyItemEl)
 }
 
 
@@ -32,13 +32,13 @@ export const observeAndInjectComments = async (root?: HTMLElement) => {
             if (mutation.type !== 'childList') continue
             mutation.addedNodes.forEach(node => {
                 if (!(isReplyItem(node))) return
-                insertPAddressEl(node)
+                insertLocation(node)
                 if (node.className.startsWith("sub")) return
                 const subReplyListEl = node.querySelector('.sub-reply-list')
                 if (!subReplyListEl) return
                 const subReplyList = Array.from(subReplyListEl.children) as HTMLDivElement[]
                 subReplyList.pop()
-                subReplyList.map(insertPAddressEl)
+                subReplyList.map(insertLocation)
             })
         }
     })
