@@ -4,7 +4,7 @@
 </p>
 
 # 哔哩哔哩网页版展示 IP 属地
-# Bilibili-Web-Show-IP-Address
+# Bilibili-Web-Show-IP-Location
 
 > 我不喜欢 IP 属地，但是你手机都显示了，为什么电脑不显示呢？
 
@@ -15,7 +15,7 @@
 
 ## 安装
 
-[[Greasy Fork](https://greasyfork.org/zh-CN/scripts/466815)] [[Github Release](https://github.com/MaxChang3/Bilibili-Web-Show-IP-Address/releases/latest/download/bilibili-web-show-ip-address.user.js)]
+[[Greasy Fork](https://greasyfork.org/zh-CN/scripts/466815)] [[Github Release](https://github.com/MaxChang3/Bilibili-Web-Show-IP-Location/releases/latest/download/bilibili-web-show-ip-location.user.js)]
 
 ## 原理图
 
