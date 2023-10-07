@@ -5,30 +5,12 @@ import { getLocationString } from "@/utils/location"
 
 type HooksFunc = CreateListCon | CreateSubReplyItem
 
-const hookCommentXHR = () => {
-    const originalXHR = unsafeWindow.XMLHttpRequest
-    class newXHR extends originalXHR {
-        constructor() {
-            super()
-        }
-        open(method: string, url: string) {
-            if (url.startsWith('https://api.bilibili.com/x/v2/reply/wbi/main')) {
-                this.withCredentials = true
-            }
-            super.open(method, url)
-        }
-    }
-    unsafeWindow.XMLHttpRequest = newXHR
-    console.log('hooked', originalXHR, unsafeWindow.XMLHttpRequest)
-}
-
 export const pageType = {
     "dynamic": Symbol("dynamic"),
     "bangumi": Symbol("bangumi")
 }
 
 export const hookBbComment = async (type: Symbol) => {
-    hookCommentXHR()
     if (type === pageType.dynamic) {
         const dynBtn = await isElementLoaded('.bili-dyn-action.comment') as HTMLDivElement
         if (dynBtn) dynBtn.click() // 手工触发一个评论按钮，召唤出 bbComment
