@@ -2,6 +2,19 @@ import { observeAndInjectComments } from "@/processors/observer"
 import { hookBbComment, pageType } from "@/processors/hook"
 import { isElementLoaded, startsWithAny } from "@/utils/helper"
 
+const serveNewHomepageDynamic = async () => {
+  await isElementLoaded('.bili-dyn-list__item')
+  document.querySelectorAll(".bili-dyn-list__item").forEach(
+    async (card) => {
+      const commentButton = await isElementLoaded(".bili-dyn-action.comment", card)
+      commentButton.addEventListener('click', () => {
+        observeAndInjectComments(card as HTMLElement | undefined)
+      }, { once: true })
+    }
+  )
+}
+
+
 export const matchPrefix = async (url: string) => {
   if (startsWithAny(url, [
     "https://www.bilibili.com/video/", // 视频
@@ -19,16 +32,18 @@ export const matchPrefix = async (url: string) => {
       hookBbComment(pageType.bangumi)
     }
   } else if (
-    url.startsWith("https://space.bilibili.com/") && url.endsWith("dynamic") || // 个人空间动态页
     url.startsWith("https://www.bilibili.com/v/topic/detail/") // 话题页
   ) {
     hookBbComment(pageType.dynamic)
+  } else if (url.startsWith("https://space.bilibili.com/") && url.endsWith("dynamic") // 个人空间动态页
+  ) {
+    serveNewHomepageDynamic()
   } else if (url.startsWith("https://space.bilibili.com/")) { // 个人空间
     const dynamicTab = await isElementLoaded('.n-dynamic')
     dynamicTab.addEventListener('click', () => {
-      hookBbComment(pageType.dynamic)
+      serveNewHomepageDynamic()
     }, { once: true })
-  } else if (url.startsWith("https://t.bilibili.com/") && location.pathname === '/' ) { // 动态主页
+  } else if (url.startsWith("https://t.bilibili.com/") && location.pathname === '/') { // 动态主页
     const dynHome = await isElementLoaded('.bili-dyn-home--member')
     const isNewDyn = (dynHome.querySelector('.bili-dyn-sidebar__btn') as HTMLElement | undefined)?.innerText.startsWith("新版反馈")
     if (isNewDyn) {
