@@ -2,8 +2,8 @@ import { observeAndInjectComments } from "@/processors/observer"
 import { hookBbComment, pageType } from "@/processors/hook"
 import { isElementLoaded, startsWithAny } from "@/utils/helper"
 
-const serveNewHomepageDynamic = async () => {
-  await isElementLoaded('.bili-dyn-list__item')
+const serveNewDynamic = async (itemSelector: string) => {
+  await isElementLoaded(itemSelector)
   document.querySelectorAll(".bili-dyn-list__item").forEach(
     async (card) => {
       const commentButton = await isElementLoaded(".bili-dyn-action.comment", card)
@@ -37,11 +37,11 @@ export const matchPrefix = async (url: string) => {
     hookBbComment(pageType.dynamic)
   } else if (url.startsWith("https://space.bilibili.com/") && url.endsWith("dynamic") // 个人空间动态页
   ) {
-    serveNewHomepageDynamic()
+    serveNewDynamic(".bili-dyn-list__item")
   } else if (url.startsWith("https://space.bilibili.com/")) { // 个人空间
     const dynamicTab = await isElementLoaded('.n-dynamic')
     dynamicTab.addEventListener('click', () => {
-      serveNewHomepageDynamic()
+      serveNewDynamic(".bili-dyn-list__item")
     }, { once: true })
   } else if (url.startsWith("https://t.bilibili.com/") && location.pathname === '/') { // 动态主页
     const dynHome = await isElementLoaded('.bili-dyn-home--member')
