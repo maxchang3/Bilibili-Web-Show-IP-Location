@@ -45,7 +45,7 @@ export const observeAndInjectComments = async (root?: HTMLElement) => {
     observer.observe(targetNode, { childList: true, subtree: true })
 }
 
-export const observeAndInjectNewComments = async (itemSelector: string, root: HTMLElement | Document | Element = document) => {
+export const serveNewComments = async (itemSelector: string, root: HTMLElement | Document | Element = document) => {
     const dynList = await isElementLoaded(itemSelector, root)
     let lastObserved: HTMLElement
     const observer = new MutationObserver((mutationsList) => {
