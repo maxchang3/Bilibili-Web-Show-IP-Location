@@ -17,8 +17,8 @@
 
 [[Greasy Fork](https://greasyfork.org/zh-CN/scripts/466815)] [[Github Release](https://github.com/MaxChang3/Bilibili-Web-Show-IP-Location/releases/latest/download/bilibili-web-show-ip-location.user.js)]
 
-## 原理图
-
+## ~~原理图~~
+（细节已更改较多，待更新）
 <p align="center">
     <img src="./assets/diagram.svg" width = "60%">
 </p>
