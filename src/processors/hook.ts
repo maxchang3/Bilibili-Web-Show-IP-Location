@@ -1,7 +1,7 @@
 import { unsafeWindow } from "$"
 import { isElementLoaded } from "@/utils/helper"
-import type { bbComment, CreateListCon, CreateSubReplyItem } from "@/types/bili"
 import { getLocationString } from "@/utils/location"
+import type { bbComment, CreateListCon, CreateSubReplyItem } from "@/types/bili"
 
 type HooksFunc = CreateListCon | CreateSubReplyItem
 
