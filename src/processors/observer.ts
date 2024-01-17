@@ -1,7 +1,6 @@
 import { isElementLoaded } from "@/utils/helper"
-import type { ReplyElement } from "@/types/reply"
 import { getLocationString } from "@/utils/location"
-
+import type { ReplyElement } from "@/types/reply"
 
 const getLocationFromElement = (replyItemEl: HTMLDivElement): string => {
     const locationElement = (replyItemEl.className.startsWith("sub")
