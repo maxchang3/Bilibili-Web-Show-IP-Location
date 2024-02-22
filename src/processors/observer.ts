@@ -1,12 +1,12 @@
 import { isElementLoaded } from "@/utils/helper"
-import { getLocationString } from "@/utils/location"
-import type { ReplyElement } from "@/types/reply"
 
 const getLocationFromElement = (replyItemEl: HTMLDivElement): string => {
-    const locationElement = (replyItemEl.className.startsWith("sub")
-        ? replyItemEl.querySelector('.reply-content')
-        : replyItemEl) as ReplyElement | undefined
-    const locationString = getLocationString(locationElement?.__vnode?.ctx?.props?.reply)
+    const userInfoEl = replyItemEl.className.startsWith("sub")
+        ? replyItemEl.querySelector(".sub-user-name")
+        : replyItemEl.querySelector(".user-name")
+    const userInfo = userInfoEl ? userInfoEl.textContent ?? "" : ""
+    const locationString = userInfo.match(/\[(.*?)\]/)?.[1] ?? "IP属地：未知"
+    if(userInfoEl) userInfoEl.innerHTML = userInfoEl.innerHTML.replace(/\[(.*?)\]/, "")
     return `&nbsp;&nbsp;${locationString}`
 }
 
@@ -48,17 +48,16 @@ export const serveNewComments = async (itemSelector: string, root: HTMLElement |
     const dynList = await isElementLoaded(itemSelector, root)
     let lastObserved: HTMLElement
     const observer = new MutationObserver((mutationsList) => {
-      for (let mutation of mutationsList) {
-        if (
-          mutation.type !== 'childList' ||
-          !(mutation.target instanceof HTMLElement) ||
-          !mutation.target.classList.contains('bili-comment-container') ||
-          mutation.target === lastObserved
-        ) continue
-        observeAndInjectComments(mutation.target)
-        lastObserved = mutation.target
-      }
+        for (let mutation of mutationsList) {
+            if (
+                mutation.type !== 'childList' ||
+                !(mutation.target instanceof HTMLElement) ||
+                !mutation.target.classList.contains('bili-comment-container') ||
+                mutation.target === lastObserved
+            ) continue
+            observeAndInjectComments(mutation.target)
+            lastObserved = mutation.target
+        }
     })
     observer.observe(dynList, { childList: true, subtree: true })
-  }
-  
+}

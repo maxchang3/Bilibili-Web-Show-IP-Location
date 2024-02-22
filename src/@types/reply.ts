@@ -248,3 +248,18 @@ export interface ReplyElement extends HTMLDivElement {
         }
     }
 }
+
+export type ReplyAPIData = {
+    code: number,
+    data: {
+        top?: {
+            admin: string | null,
+            upper: Reply | null
+            vote: string | null
+        },
+        top_replies?: Reply[],
+        replies: Reply[]
+    },
+    message: string,
+    ttl: number
+}
