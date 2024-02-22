@@ -54,6 +54,8 @@ export const matchPrefix = async (url: string) => {
     } else {
       hookBbComment(pageType.dynamic)
     }
+  } else if (url.startsWith("https://www.bilibili.com/festival/")) {
+    hookBbComment(pageType.bangumi)
   }
 }
 
