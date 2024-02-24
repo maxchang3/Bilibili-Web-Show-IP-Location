@@ -1,9 +1,10 @@
 import { unsafeWindow } from "$"
+import { getLocationString } from "@/utils/location"
 import type { Reply, ReplyAPIData } from "@/@types/reply"
 
 
 const injectLocation = (reply: Reply) => {
-    reply.member.uname = `${reply.member.uname}[${reply.reply_control.location}]`
+    reply.member.uname = `${reply.member.uname}[${getLocationString(reply)}]`
     reply.replies?.forEach(injectLocation)
 }
 
