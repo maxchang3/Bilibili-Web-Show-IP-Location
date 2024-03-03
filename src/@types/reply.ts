@@ -240,10 +240,22 @@ export interface Reply {
 }
 
 export interface ReplyElement extends HTMLDivElement {
-    __vnode: {
-        ctx: {
+    __vue__: {
+        vnode: {
             props: {
                 reply: Reply
+            }
+        }
+    }
+}
+
+
+export interface SubReplyElement extends HTMLDivElement {
+    __vue__: {
+        vnode: {
+            props: {
+                subReply: Reply
+                rootReply: Reply
             }
         }
     }

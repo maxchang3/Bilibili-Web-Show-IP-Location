@@ -5,11 +5,12 @@ export const isElementLoaded = async (selector: string, root: HTMLElement | Docu
         if (element) return resolve(element)
         const observer = new MutationObserver(_ => {
             const element = getElement()
+            console.log(element, 111)
             if (!element) return
             resolve(element)
             observer.disconnect()
         })
-        observer.observe(root === document ? root.body : root, {
+        observer.observe(root === document ? root.documentElement : root, {
             childList: true,
             subtree: true
         })

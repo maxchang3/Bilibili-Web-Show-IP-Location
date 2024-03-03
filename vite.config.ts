@@ -29,9 +29,10 @@ export default defineConfig({
           "https://www.bilibili.com/cheese/play/*",
           "https://www.bilibili.com/festival/*",
         ],
-        "run-at": "document-body",
+        "run-at": "document-start",
         "license": "MIT",
-        "description": "我不喜欢 IP 属地，但是你手机都显示了，为什么电脑不显示呢？目前仅视频、动态评论区"
+        "description": "我不喜欢 IP 属地，但是你手机都显示了，为什么电脑不显示呢？目前仅视频、动态评论区",
+        "require": "https://update.greasyfork.org/scripts/449444/1081400/Hook%20Vue3%20app.js"
       },
     }),
   ],

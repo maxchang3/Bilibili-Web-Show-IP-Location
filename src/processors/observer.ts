@@ -1,12 +1,17 @@
 import { isElementLoaded } from "@/utils/helper"
+import { getLocationString } from "@/utils/location"
+import type { ReplyElement, SubReplyElement } from "@/types/reply"
 
 const getLocationFromElement = (replyItemEl: HTMLDivElement): string => {
-    const userInfoEl = replyItemEl.className.startsWith("sub")
-        ? replyItemEl.querySelector(".sub-user-name")
-        : replyItemEl.querySelector(".user-name")
-    const userInfo = userInfoEl ? userInfoEl.textContent ?? "" : ""
-    const locationString = userInfo.match(/\[(.*?)\]/)?.[1] ?? "IP属地：未知"
-    if(userInfoEl) userInfoEl.innerHTML = userInfoEl.innerHTML.replace(/\[(.*?)\]/, "")
+    let locationElement: SubReplyElement | ReplyElement
+    let locationString: string
+    if (replyItemEl.className.startsWith("sub")) {
+        locationElement = replyItemEl as SubReplyElement
+        locationString = getLocationString(locationElement?.__vue__.vnode.props.subReply)
+    } else {
+        locationElement = replyItemEl as ReplyElement
+        locationString = getLocationString(locationElement?.__vue__.vnode.props.reply)
+    }
     return `&nbsp;&nbsp;${locationString}`
 }
 
