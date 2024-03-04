@@ -11,7 +11,7 @@ const injectBBComment = async (bbComment: bbComment) => {
         const [item] = args
         const result: string = Reflect.apply(target, thisArg, args)
         const replyTimeRegex = /<span class="reply-time">(.*?)<\/span>/
-        return result.replace(replyTimeRegex, `<span class="reply-time">$1&nbsp;&nbsp;${getLocationString(item)}</span>`)
+        return result.replace(replyTimeRegex, `<span class="reply-time">$1</span><span class="reply-location">${getLocationString(item)}</span>`)
     }
     bbComment.prototype._createListCon = new Proxy(createListCon, { apply: applyHandler })
     bbComment.prototype._createSubReplyItem = new Proxy(createSubReplyItem, { apply: applyHandler })

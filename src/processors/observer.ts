@@ -2,17 +2,17 @@ import { isElementLoaded } from "@/utils/helper"
 import { getLocationString } from "@/utils/location"
 import type { ReplyElement, SubReplyElement } from "@/types/reply"
 
-const getLocationFromElement = (replyItemEl: HTMLDivElement): string => {
-    let locationElement: SubReplyElement | ReplyElement
-    let locationString: string
+const getLocationFromReply = (replyItemEl: HTMLDivElement) => {
+    let replyElement: SubReplyElement | ReplyElement
+    let locationString: string | undefined
     if (replyItemEl.className.startsWith("sub")) {
-        locationElement = replyItemEl as SubReplyElement
-        locationString = getLocationString(locationElement?.__vue__.vnode.props.subReply)
+        replyElement = replyItemEl as SubReplyElement
+        locationString = getLocationString(replyElement?.__vue__.vnode.props.subReply)
     } else {
-        locationElement = replyItemEl as ReplyElement
-        locationString = getLocationString(locationElement?.__vue__.vnode.props.reply)
+        replyElement = replyItemEl as ReplyElement
+        locationString = getLocationString(replyElement?.__vue__.vnode.props.reply)
     }
-    return `&nbsp;&nbsp;${locationString}`
+    return locationString
 }
 
 
@@ -21,7 +21,8 @@ const insertLocation = (replyItemEl: HTMLDivElement) => {
         ? replyItemEl.querySelector('.sub-reply-info')
         : replyItemEl.querySelector('.reply-info')
     if (!replyInfo) throw Error('Can not detect reply info')
-    replyInfo.children[0].innerHTML += getLocationFromElement(replyItemEl)
+    const locationString = getLocationFromReply(replyItemEl)
+    if (locationString) replyInfo.children[0].innerHTML += `&nbsp;&nbsp;${locationString}`
 }
 
 
