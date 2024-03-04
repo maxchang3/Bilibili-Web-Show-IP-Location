@@ -5,7 +5,6 @@ import type { bbComment, CreateListCon, CreateSubReplyItem } from "@/types/bili"
 type HooksFunc = CreateListCon | CreateSubReplyItem
 
 const injectBBComment = async (bbComment: bbComment) => {
-    if (!bbComment) throw Error("Can not detect bbComment")
     const createListCon = bbComment.prototype._createListCon
     const createSubReplyItem = bbComment.prototype._createSubReplyItem
     const applyHandler = <T extends HooksFunc>(target: T, thisArg: bbComment, args: Parameters<T>) => {
