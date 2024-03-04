@@ -15,3 +15,13 @@ export const isElementLoaded = async (selector: string, root: HTMLElement | Docu
         })
     })
 }
+
+export const isConditionTrue = async (fn: () => boolean) => {
+    return new Promise<boolean>(resolve => {
+        const interval = setInterval(() => {
+            if (!fn()) return
+            clearInterval(interval)
+            resolve(true)
+        }, 100)
+    })
+}
