@@ -2,19 +2,18 @@ interface RouterOption {
     endsWith?: string
 }
 export class Router {
-    routes: Map<string, readonly [Function, RouterOption]> = new Map()
+    routes: Map<[string, RouterOption], Function> = new Map()
     serve(route: string | string[], routeFunction: Function, option: RouterOption = {}) {
-        const v = [routeFunction, option] as const
         if (Array.isArray(route)) {
-            route.forEach(r => this.routes.set(r, v))
+            route.forEach(r => this.routes.set([r, option], routeFunction))
             return
         }
-        this.routes.set(route, v)
+        this.routes.set([route, option], routeFunction)
     }
     match(url: string) {
-        for (let [route, [routeFunction, option]] of this.routes.entries()) {
+        for (let [[route, option], routeFunction] of this.routes.entries()) {
             if (!url.startsWith(route)) continue
-            if (option.endsWith && url.endsWith(option.endsWith)) continue
+            if (option.endsWith && !url.endsWith(option.endsWith)) continue
             routeFunction()
             break
         }
