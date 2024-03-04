@@ -5,7 +5,6 @@ export const isElementLoaded = async (selector: string, root: HTMLElement | Docu
         if (element) return resolve(element)
         const observer = new MutationObserver(_ => {
             const element = getElement()
-            console.log(element, 111)
             if (!element) return
             resolve(element)
             observer.disconnect()
@@ -16,7 +15,3 @@ export const isElementLoaded = async (selector: string, root: HTMLElement | Docu
         })
     })
 }
-
-
-export const startsWithAny = (str: string, prefixes: string[]) =>
-    prefixes.some(prefix => str.startsWith(prefix))

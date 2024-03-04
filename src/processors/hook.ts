@@ -1,25 +1,10 @@
 import { unsafeWindow } from "$"
-import { isElementLoaded } from "@/utils/helper"
 import { getLocationString } from "@/utils/location"
 import type { bbComment, CreateListCon, CreateSubReplyItem } from "@/types/bili"
 
 type HooksFunc = CreateListCon | CreateSubReplyItem
 
-export const pageType = {
-    "dynamic": Symbol("dynamic"),
-    "bangumi": Symbol("bangumi")
-}
-
-export const hookBbComment = async (type: Symbol) => {
-    if (type === pageType.dynamic) {
-        const dynBtn = await isElementLoaded('.bili-dyn-action.comment') as HTMLDivElement
-        if (dynBtn) dynBtn.click() // 手工触发一个评论按钮，召唤出 bbComment
-        await isElementLoaded('.bb-comment')
-        dynBtn.click() // 然后接着关掉
-    } else if (type === pageType.bangumi) {
-        await isElementLoaded('.bb-comment')
-    }
-    const bbComment = unsafeWindow.bbComment
+const injectBBComment = async (bbComment: bbComment) => {
     if (!bbComment) throw Error("Can not detect bbComment")
     const createListCon = bbComment.prototype._createListCon
     const createSubReplyItem = bbComment.prototype._createSubReplyItem
@@ -31,4 +16,16 @@ export const hookBbComment = async (type: Symbol) => {
     }
     bbComment.prototype._createListCon = new Proxy(createListCon, { apply: applyHandler })
     bbComment.prototype._createSubReplyItem = new Proxy(createSubReplyItem, { apply: applyHandler })
+}
+
+export const hookBBComment = async () => {
+    let bbComment: bbComment | undefined
+    Object.defineProperty(unsafeWindow, 'bbComment', {
+        get: (): bbComment | undefined => bbComment,
+        set: (value: bbComment) => {
+            bbComment = value
+            injectBBComment(value)
+        },
+        configurable: true,
+    })
 }
