@@ -17,8 +17,13 @@ export const isElementLoaded = async (selector: string, root: HTMLElement | Docu
 }
 
 export const isConditionTrue = async (fn: () => boolean) => {
+    const timeStart = performance.now()
     return new Promise<boolean>(resolve => {
         const interval = setInterval(() => {
+            if (performance.now() - timeStart > 10000) {
+                clearInterval(interval)
+                resolve(false)
+            }
             if (!fn()) return
             clearInterval(interval)
             resolve(true)

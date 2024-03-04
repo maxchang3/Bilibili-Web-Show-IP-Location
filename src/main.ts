@@ -20,12 +20,12 @@ router.serve( /** 拜年祭*/ "https://www.bilibili.com/festival/", hookBBCommen
 router.serve( /** 专栏 */ "https://www.bilibili.com/read/", async () => {
     hookBBComment()
     const articleDetail = await isElementLoaded('.article-detail') as ArticleDetail
-    const publishText = articleDetail.querySelector(".publish-text")
-    if (!publishText || !articleDetail.__vue__?.readViewInfo) return
     await isConditionTrue(() => {// 等待 readViewInfo 加载完毕，后期可能改为 hook 方式
         const readInfo = document.querySelector(".article-read-info")
-        return !!(readInfo && readInfo.lastElementChild?.textContent !== "评论")
+        return !!(readInfo && readInfo.lastElementChild?.textContent !== "--评论")
     })
+    const publishText = articleDetail.querySelector(".publish-text")
+    if (!publishText || !articleDetail.__vue__?.readViewInfo) return
     publishText.innerHTML += `&nbsp;&nbsp;IP属地：${articleDetail.__vue__?.readViewInfo?.location}`
 
 })
