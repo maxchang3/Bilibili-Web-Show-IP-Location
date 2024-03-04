@@ -1,13 +1,18 @@
 import { isElementLoaded } from "@/utils/helper"
+import { getLocationString } from "@/utils/location"
+import type { ReplyElement, SubReplyElement } from "@/types/reply"
 
-const getLocationFromElement = (replyItemEl: HTMLDivElement): string => {
-    const userInfoEl = replyItemEl.className.startsWith("sub")
-        ? replyItemEl.querySelector(".sub-user-name")
-        : replyItemEl.querySelector(".user-name")
-    const userInfo = userInfoEl ? userInfoEl.textContent ?? "" : ""
-    const locationString = userInfo.match(/\[(.*?)\]/)?.[1] ?? "IP属地：未知"
-    if(userInfoEl) userInfoEl.innerHTML = userInfoEl.innerHTML.replace(/\[(.*?)\]/, "")
-    return `&nbsp;&nbsp;${locationString}`
+const getLocationFromReply = (replyItemEl: HTMLDivElement) => {
+    let replyElement: SubReplyElement | ReplyElement
+    let locationString: string | undefined
+    if (replyItemEl.className.startsWith("sub")) {
+        replyElement = replyItemEl as SubReplyElement
+        locationString = getLocationString(replyElement?.__vue__.vnode.props.subReply)
+    } else {
+        replyElement = replyItemEl as ReplyElement
+        locationString = getLocationString(replyElement?.__vue__.vnode.props.reply)
+    }
+    return locationString
 }
 
 
@@ -16,7 +21,8 @@ const insertLocation = (replyItemEl: HTMLDivElement) => {
         ? replyItemEl.querySelector('.sub-reply-info')
         : replyItemEl.querySelector('.reply-info')
     if (!replyInfo) throw Error('Can not detect reply info')
-    replyInfo.children[0].innerHTML += getLocationFromElement(replyItemEl)
+    const locationString = getLocationFromReply(replyItemEl)
+    if (locationString) replyInfo.children[0].innerHTML += `&nbsp;&nbsp;${locationString}`
 }
 
 

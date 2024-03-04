@@ -9,13 +9,9 @@ export const isElementLoaded = async (selector: string, root: HTMLElement | Docu
             resolve(element)
             observer.disconnect()
         })
-        observer.observe(root === document ? root.body : root, {
+        observer.observe(root === document ? root.documentElement : root, {
             childList: true,
             subtree: true
         })
     })
 }
-
-
-export const startsWithAny = (str: string, prefixes: string[]) =>
-    prefixes.some(prefix => str.startsWith(prefix))
