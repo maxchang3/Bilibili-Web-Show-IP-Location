@@ -48,10 +48,15 @@ jobs:
         run: |
           pnpm build
 
+      - name: Check if tag contains 'beta'
+        id: check_tag
+        run: echo "::set-output name=beta::$(if [[ "${{ github.ref }}" == *"beta"* ]]; then echo 'true'; else echo 'false'; fi)"
+        shell: bash
+    
       - name: Release
         uses: "marvinpinto/action-automatic-releases@latest"
         with:
           repo_token: "${{ secrets.ACCESS_TOKEN }}"
-          prerelease: false
+          prerelease: ${{ steps.check_tag.outputs.beta }}
           files: |
             dist/*
