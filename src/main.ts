@@ -68,4 +68,7 @@ router.serve("https://t.bilibili.com/", async () => {
 // 拜年祭
 router.serve("https://www.bilibili.com/festival/", hookBBComment)
 
+// 小黑屋
+router.serve("https://www.bilibili.com/blackroom/ban/", () => hookBBComment({ blackroom: true }))
+
 router.match(location.href)
