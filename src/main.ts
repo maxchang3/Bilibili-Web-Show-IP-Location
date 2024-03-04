@@ -8,11 +8,16 @@ import { isElementLoaded, Router } from "@/utils/"
 const router = new Router()
 
 router.serve([
-    /** 视频  */ "https://www.bilibili.com/video/",
-    /** 新列表  */ "https://www.bilibili.com/list/",
+    /** 视频 */ "https://www.bilibili.com/video/",
+    /** 新列表 */ "https://www.bilibili.com/list/",
     /** 新版单独动态页 */ "https://www.bilibili.com/opus/",
     /** 课程页 */ "https://www.bilibili.com/cheese/play/"
 ], observeAndInjectComments)
+
+router.serve([
+    /** 文章页 */ "https://www.bilibili.com/read/",
+    /** 拜年祭*/ "https://www.bilibili.com/festival/",
+], hookBBComment)
 
 /**
  * 番剧播放页
@@ -73,10 +78,6 @@ router.serve("https://t.bilibili.com/", async () => {
     }
 })
 
-/** 
- * 拜年祭
- */
-router.serve("https://www.bilibili.com/festival/", hookBBComment)
 
 /** 
  * 小黑屋
