@@ -8,7 +8,15 @@
 
 > 我不喜欢 IP 属地，但是你手机都显示了，为什么电脑不显示呢？
 
-目前支持的场景有：视频（普通视频、番剧（影视）、收藏列表）、动态评论区、个人主页动态。
+目前支持的场景有（未作特殊说明均支持新旧版）：
+
+- 视频（普通视频、番剧（影视）、收藏列表播放页）评论区
+- 动态评论区
+- 个人主页动态评论区
+- 专栏（文章）作者 & 评论区
+- 拜年祭评论区
+- 课程评论区
+- 小黑屋评论区
 
 仅测试于 Chrome 113+ ([tampermonkey](https://github.com/Tampermonkey/tampermonkey)) / Safari 16.4+ ([Stay](https://github.com/shenruisi/Stay))。**需要使用支持 [unsafeWindow](https://www.tampermonkey.net/documentation.php#api:unsafeWindow) API 的脚本管理器**
 
