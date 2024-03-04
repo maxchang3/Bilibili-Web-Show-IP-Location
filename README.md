@@ -19,7 +19,7 @@
 
 ## 原理
 
-对于旧版评论，通过 hook window.bbComment 的方式，重写评论插入事件，插入 IP 属地。
+对于旧版评论，通过拦截（Hook） `window.bbComment` 的方式，重写评论插入事件，插入 IP 属地。
 
 对于新版评论，通过 [Hook Vue3 app](https://update.greasyfork.org/scripts/449444/1081400/Hook%20Vue3%20app.js)（自 V1.5.8+） 挂载不同的 `__vue__`  到相应元素。通过 `MutationObserver` 监听评论插入事件，获取评论元素的 IP 属地并插入。
 
