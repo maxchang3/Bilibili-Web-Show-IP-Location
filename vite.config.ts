@@ -31,9 +31,9 @@ export default defineConfig({
           "https://www.bilibili.com/read/*"
         ],
         "run-at": "document-start",
-        "license": "MIT",
-        "description": "我不喜欢 IP 属地，但是你手机都显示了，为什么电脑不显示呢？",
-        "require": "https://update.greasyfork.org/scripts/449444/1081400/Hook%20Vue3%20app.js"
+        license: "MIT",
+        description: "我不喜欢 IP 属地，但是你手机都显示了，为什么电脑不显示呢？",
+        require: "https://update.greasyfork.org/scripts/449444/1081400/Hook%20Vue3%20app.js"
       },
     }),
   ],
