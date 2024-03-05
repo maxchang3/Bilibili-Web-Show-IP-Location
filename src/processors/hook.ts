@@ -9,14 +9,13 @@ interface InjectorOption {
 }
 
 const injectBBComment = async (bbComment: bbComment, { blackroom }: InjectorOption = { blackroom: false }) => {
-    const createListCon = bbComment.prototype._createListCon
-    const createSubReplyItem = bbComment.prototype._createSubReplyItem
+    const { _createListCon: createListCon, _createSubReplyItem: createSubReplyItem } = bbComment.prototype
     const applyHandler = <T extends HooksFunc>(target: T, thisArg: bbComment, args: Parameters<T>) => {
         const [item] = args
         const result: string = Reflect.apply(target, thisArg, args)
         const replyTimeRegex = /<span class="reply-time">(.*?)<\/span>/
-        const blackroomRegex = /<span class="time">(.*?)<\/span>/
         if (blackroom) {
+            const blackroomRegex = /<span class="time">(.*?)<\/span>/
             return result.replace(blackroomRegex, `<span class="time">$1&nbsp;&nbsp;${getLocationString(item)}</span>`)
         }
         return result.replace(replyTimeRegex, `<span class="reply-time">$1</span><span class="reply-location">${getLocationString(item)}</span>`)
