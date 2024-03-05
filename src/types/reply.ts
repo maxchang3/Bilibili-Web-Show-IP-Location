@@ -1,3 +1,81 @@
+export interface ReplyElement extends HTMLDivElement {
+    __vue__: {
+        vnode: {
+            props: {
+                reply: Reply
+            }
+        }
+    }
+}
+
+export interface SubReplyElement extends HTMLDivElement {
+    __vue__: {
+        vnode: {
+            props: {
+                subReply: Reply
+                rootReply: Reply
+            }
+        }
+    }
+}
+
+export type CreateListCon = (item: Reply, i: number, pos: number) => string
+
+export type CreateSubReplyItem = (item: Reply, i: number) => string
+
+export interface bbComment {
+    prototype: {
+        _createListCon: CreateListCon,
+        _createSubReplyItem: CreateSubReplyItem
+    }
+}
+
+export interface Reply {
+    rpid: number
+    oid: number
+    type: number
+    mid: number
+    root: number
+    parent: number
+    dialog: number
+    count: number
+    rcount: number
+    state: number
+    fansgrade: number
+    attr: number
+    ctime: number
+    rpid_str: string
+    root_str: string
+    parent_str: string
+    like: number
+    action: number
+    member: Member
+    content: Content
+    replies: Reply[] | null
+    assist: number
+    up_action: UpAction
+    invisible: boolean
+    reply_control: ReplyControl
+    folder: Folder
+    dynamic_id_str: string
+}
+
+export type ReplyAPIData = {
+    code: number,
+    data: {
+        top?: {
+            admin: string | null,
+            upper: Reply | null
+            vote: string | null
+        },
+        top_replies?: Reply[],
+        replies: Reply[]
+    },
+    message: string,
+    ttl: number
+}
+
+
 interface Content {
     message: string
     members: any[]
@@ -207,71 +285,4 @@ interface ReplyControl {
 interface UpAction {
     like: boolean
     reply: boolean
-}
-
-export interface Reply {
-    rpid: number
-    oid: number
-    type: number
-    mid: number
-    root: number
-    parent: number
-    dialog: number
-    count: number
-    rcount: number
-    state: number
-    fansgrade: number
-    attr: number
-    ctime: number
-    rpid_str: string
-    root_str: string
-    parent_str: string
-    like: number
-    action: number
-    member: Member
-    content: Content
-    replies: Reply[] | null
-    assist: number
-    up_action: UpAction
-    invisible: boolean
-    reply_control: ReplyControl
-    folder: Folder
-    dynamic_id_str: string
-}
-
-export interface ReplyElement extends HTMLDivElement {
-    __vue__: {
-        vnode: {
-            props: {
-                reply: Reply
-            }
-        }
-    }
-}
-
-
-export interface SubReplyElement extends HTMLDivElement {
-    __vue__: {
-        vnode: {
-            props: {
-                subReply: Reply
-                rootReply: Reply
-            }
-        }
-    }
-}
-
-export type ReplyAPIData = {
-    code: number,
-    data: {
-        top?: {
-            admin: string | null,
-            upper: Reply | null
-            vote: string | null
-        },
-        top_replies?: Reply[],
-        replies: Reply[]
-    },
-    message: string,
-    ttl: number
 }

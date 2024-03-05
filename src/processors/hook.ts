@@ -1,6 +1,6 @@
 import { unsafeWindow } from "$"
 import { getLocationString } from "@/utils/location"
-import type { bbComment, CreateListCon, CreateSubReplyItem } from "@/types/bili"
+import type { bbComment, CreateListCon, CreateSubReplyItem } from "@/types/reply"
 
 type HooksFunc = CreateListCon | CreateSubReplyItem
 
