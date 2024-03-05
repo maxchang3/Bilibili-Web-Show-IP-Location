@@ -1,4 +1,4 @@
-import { bbComment } from './bili'
+import { bbComment } from './reply'
 
 declare global {
     interface Window {
