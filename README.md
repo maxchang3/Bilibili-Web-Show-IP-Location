@@ -51,3 +51,7 @@
   - 提供了继续保持原有脚本逻辑的底层支持
 
 - 帮助测试 & 提供反馈的朋友们
+
+## Stargazers over time
+
+[![Stargazers over time](https://starchart.cc/maxchang3/Bilibili-Web-Show-IP-Location.svg?variant=adaptive)](https://starchart.cc/maxchang3/Bilibili-Web-Show-IP-Location)
