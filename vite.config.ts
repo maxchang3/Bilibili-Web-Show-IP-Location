@@ -1,13 +1,12 @@
+import monkey from 'vite-plugin-monkey'
 import { defineConfig } from 'vite'
 import { fileURLToPath } from 'url'
-import monkey, { cdn } from 'vite-plugin-monkey'
 
 // https://vitejs.dev/config/
 export default defineConfig({
   resolve: {
     alias: [
       { find: '@', replacement: fileURLToPath(new URL('./src', import.meta.url)) },
-      { find: '@/types', replacement: fileURLToPath(new URL('./src/@types', import.meta.url)) },
     ],
   },
   plugins: [
