@@ -7,6 +7,7 @@ type HooksFunc = CreateListCon | CreateSubReplyItem
 interface InjectorOption {
     blackroom: boolean
 }
+
 const injectBBComment = async (bbComment: bbComment, { blackroom }: InjectorOption = { blackroom: false }) => {
     const createListCon = bbComment.prototype._createListCon
     const createSubReplyItem = bbComment.prototype._createSubReplyItem

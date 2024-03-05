@@ -1,6 +1,7 @@
 interface RouterOption {
     endsWith?: string
 }
+
 export class Router {
     routes: [route: string, routeFunction: Function, option: RouterOption][] = []
     serve(route: string | string[], routeFunction: Function, option: RouterOption = {}) {

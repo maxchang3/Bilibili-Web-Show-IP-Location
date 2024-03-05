@@ -15,7 +15,6 @@ const getLocationFromReply = (replyItemEl: HTMLDivElement) => {
     return locationString
 }
 
-
 const insertLocation = (replyItemEl: HTMLDivElement) => {
     const replyInfo = replyItemEl.className.startsWith("sub")
         ? replyItemEl.querySelector('.sub-reply-info')
@@ -25,10 +24,8 @@ const insertLocation = (replyItemEl: HTMLDivElement) => {
     if (locationString) replyInfo.children[0].innerHTML += `&nbsp;&nbsp;${locationString}`
 }
 
-
 const isReplyItem = (el: Node): el is HTMLDivElement =>
     (el instanceof HTMLDivElement) && (["reply-item", "sub-reply-item"].includes(el.className))
-
 
 export const observeAndInjectComments = async (root?: HTMLElement) => {
     const targetNode = await isElementLoaded('.reply-list', root)
