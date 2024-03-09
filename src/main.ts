@@ -69,7 +69,7 @@ router.serve("https://t.bilibili.com/", async () => {
     const dynHome = await isElementLoaded('.bili-dyn-home--member')
     const isNewDyn = (dynHome.querySelector('.bili-dyn-sidebar__btn') as HTMLElement | undefined)?.innerText.startsWith("新版反馈")
     if (isNewDyn) {
-        serveNewComments(".bili-dyn-list")
+        serveNewComments(".bili-dyn-home--member")
     } else {
         hookBBComment()
     }
