@@ -15,6 +15,6 @@
     "bumpp": "^9.2.0",
     "typescript": "^5.0.4",
     "vite": "^5.0.10",
-    "vite-plugin-monkey": "^3.5.1"
+    "vite-plugin-monkey": "^4.0.0"
   }
 }
