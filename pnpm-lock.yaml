@@ -18,8 +18,8 @@ devDependencies:
     specifier: ^5.0.10
     version: 5.2.0(@types/node@20.12.3)
   vite-plugin-monkey:
-    specifier: ^3.5.1
-    version: 3.5.2(vite@5.2.0)
+    specifier: ^4.0.0
+    version: 4.0.0(vite@5.2.0)
 
 packages:
 
@@ -761,6 +761,10 @@ packages:
     engines: {node: '>=16.17.0'}
     dev: true
 
+  /import-meta-resolve@4.1.0:
+    resolution: {integrity: sha512-I6fiaX09Xivtk+THaMfAwnA3MVA5Big1WHF1Dfx9hFuvNIWpXnorlkzhcQf6ehrqQiiZECRt1poOAkPmer3ruw==}
+    dev: true
+
   /is-binary-path@2.1.0:
     resolution: {integrity: sha512-ZMERYes6pDydyuGidse7OsHxtbI7WVeUEozgR/g7rd0xUimYNlvZRE/K2MgZTjWy725IfelLeVcEM97mmtRGXw==}
     engines: {node: '>=8'}
@@ -1209,11 +1213,10 @@ packages:
     engines: {node: '>=8'}
     dev: true
 
-  /vite-plugin-monkey@3.5.2(vite@5.2.0):
-    resolution: {integrity: sha512-UaMfHv6PbuSzX11NFmxxpdI9/+WNdRt6OZLfrhKTkySpgPvbFqvME38J/1LpjqFXMgwjKWCTW28RRSEt+ygSRA==}
-    engines: {node: ^14.18 || >= 16, pnpm: '>=6'}
+  /vite-plugin-monkey@4.0.0(vite@5.2.0):
+    resolution: {integrity: sha512-Zx+ZNsbuDhcVdsPOu7Ck9TDK7k41V/ngs2/lIvgCl6k4prLaBbJuBVhecWUIGudfEHnJgOY3/GaTZ1gw8g30xA==}
     peerDependencies:
-      vite: '>=3.0.0'
+      vite: ^5.0.0
     peerDependenciesMeta:
       vite:
         optional: true
@@ -1221,6 +1224,7 @@ packages:
       acorn-walk: 8.3.2
       cross-spawn: 7.0.3
       htmlparser2: 9.1.0
+      import-meta-resolve: 4.1.0
       magic-string: 0.30.8
       mrmime: 1.0.1
       open: 9.1.0
