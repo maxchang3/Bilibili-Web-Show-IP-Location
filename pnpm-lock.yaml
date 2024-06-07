@@ -19,7 +19,7 @@ devDependencies:
     version: 5.2.0(@types/node@20.12.3)
   vite-plugin-monkey:
     specifier: ^4.0.0
-    version: 4.0.2(vite@5.2.0)
+    version: 4.0.3(vite@5.2.0)
 
 packages:
 
@@ -1212,8 +1212,8 @@ packages:
     engines: {node: '>=8'}
     dev: true
 
-  /vite-plugin-monkey@4.0.2(vite@5.2.0):
-    resolution: {integrity: sha512-NYnh9N0jPv3sx0oGazZPzpCK+zQn2gt6EeH7nbYyfVPQr2IZ6qSX7hc0a/i2Z4SavDHvr+CikG7EJea5m7wgyA==}
+  /vite-plugin-monkey@4.0.3(vite@5.2.0):
+    resolution: {integrity: sha512-1q+8tGVU/71KBEAsJuv2sMOROCau6ZIiNqnDaQmJSeG1izt0IzrvgOhYASfFMFfDQdgSUsPC2S54YBLz8WZ5JA==}
     peerDependencies:
       vite: ^5.0.0
     peerDependenciesMeta:
