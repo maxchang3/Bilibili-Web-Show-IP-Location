@@ -19,7 +19,7 @@ devDependencies:
     version: 5.2.0(@types/node@20.12.3)
   vite-plugin-monkey:
     specifier: ^4.0.0
-    version: 4.0.0(vite@5.2.0)
+    version: 4.0.2(vite@5.2.0)
 
 packages:
 
@@ -854,9 +854,8 @@ packages:
       yallist: 4.0.0
     dev: true
 
-  /magic-string@0.30.8:
-    resolution: {integrity: sha512-ISQTe55T2ao7XtlAStud6qwYPZjE4GK1S/BeVPus4jrq6JuOnQ00YKQC581RWhR122W7msZV263KzVeLoqidyQ==}
-    engines: {node: '>=12'}
+  /magic-string@0.30.10:
+    resolution: {integrity: sha512-iIRwTIf0QKV3UAnYK4PU8uiEc4SRh5jX0mwpIwETPpHdhVM4f53RSwS/vXvN1JhGX+Cs7B8qIq3d6AH49O5fAQ==}
     dependencies:
       '@jridgewell/sourcemap-codec': 1.4.15
     dev: true
@@ -1015,8 +1014,8 @@ packages:
     resolution: {integrity: sha512-xCy9V055GLEqoFaHoC1SoLIaLmWctgCUaBaWxDZ7/Zx4CTyX7cJQLJOok/orfjZAh9kEYpjJa4d0KcJmCbctZA==}
     dev: true
 
-  /picocolors@1.0.0:
-    resolution: {integrity: sha512-1fygroTLlHu66zi26VoTDv8yRgm0Fccecssto+MhsZ0D/DGW2sm8E8AjW7NU5VVTRt5GxbeZ5qBuJr+HyLYkjQ==}
+  /picocolors@1.0.1:
+    resolution: {integrity: sha512-anP1Z8qwhkbmu7MFP5iTt+wQKXgwzf7zTyGlcdzabySa9vd0Xt392U0rVmz9poOaBj0uHJKyyo9/upk0HrEQew==}
     dev: true
 
   /picomatch@2.3.1:
@@ -1037,7 +1036,7 @@ packages:
     engines: {node: ^10 || ^12 || >=14}
     dependencies:
       nanoid: 3.3.7
-      picocolors: 1.0.0
+      picocolors: 1.0.1
       source-map-js: 1.2.0
     dev: true
 
@@ -1161,8 +1160,8 @@ packages:
     engines: {node: '>=12'}
     dev: true
 
-  /systemjs@6.14.3:
-    resolution: {integrity: sha512-hQv45irdhXudAOr8r6SVSpJSGtogdGZUbJBRKCE5nsIS7tsxxvnIHqT4IOPWj+P+HcSzeWzHlGCGpmhPDIKe+w==}
+  /systemjs@6.15.1:
+    resolution: {integrity: sha512-Nk8c4lXvMB98MtbmjX7JwJRgJOL8fluecYCfCeYBznwmpOs8Bf15hLM6z4z71EDAhQVrQrI+wt1aLWSXZq+hXA==}
     dev: true
 
   /tar@6.2.1:
@@ -1213,8 +1212,8 @@ packages:
     engines: {node: '>=8'}
     dev: true
 
-  /vite-plugin-monkey@4.0.0(vite@5.2.0):
-    resolution: {integrity: sha512-Zx+ZNsbuDhcVdsPOu7Ck9TDK7k41V/ngs2/lIvgCl6k4prLaBbJuBVhecWUIGudfEHnJgOY3/GaTZ1gw8g30xA==}
+  /vite-plugin-monkey@4.0.2(vite@5.2.0):
+    resolution: {integrity: sha512-NYnh9N0jPv3sx0oGazZPzpCK+zQn2gt6EeH7nbYyfVPQr2IZ6qSX7hc0a/i2Z4SavDHvr+CikG7EJea5m7wgyA==}
     peerDependencies:
       vite: ^5.0.0
     peerDependenciesMeta:
@@ -1225,11 +1224,11 @@ packages:
       cross-spawn: 7.0.3
       htmlparser2: 9.1.0
       import-meta-resolve: 4.1.0
-      magic-string: 0.30.8
+      magic-string: 0.30.10
       mrmime: 1.0.1
       open: 9.1.0
-      picocolors: 1.0.0
-      systemjs: 6.14.3
+      picocolors: 1.0.1
+      systemjs: 6.15.1
       vite: 5.2.0(@types/node@20.12.3)
     dev: true
 
