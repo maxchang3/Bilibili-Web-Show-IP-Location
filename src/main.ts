@@ -67,7 +67,10 @@ router.serve("https://space.bilibili.com/", async () => {
  */
 router.serve("https://t.bilibili.com/", async () => {
     const dynHome = await isElementLoaded('.bili-dyn-home--member')
-    const isNewDyn = (dynHome.querySelector('.bili-dyn-sidebar__btn') as HTMLElement | undefined)?.innerText.startsWith("新版反馈")
+    const isNewDyn = (() => {
+        const dynBtnText = (dynHome.querySelector('.bili-dyn-sidebar__btn') as HTMLElement | undefined)?.innerText
+        return dynBtnText ? dynBtnText.includes("新版反馈") || dynBtnText.includes("回到旧版") : false
+    })()
     if (isNewDyn) {
         serveNewComments(".bili-dyn-home--member")
     } else {
