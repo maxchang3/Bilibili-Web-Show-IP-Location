@@ -18,6 +18,8 @@
 - 课程评论区
 - 小黑屋评论区
 
+ **受限于接口限制，个人主页 IP 显示目前不在考虑范围内**
+
 仅测试于 Chrome 113+ ([tampermonkey](https://github.com/Tampermonkey/tampermonkey)) / Safari 16.4+ ([Stay](https://github.com/shenruisi/Stay))。**需要使用支持 [unsafeWindow](https://www.tampermonkey.net/documentation.php#api:unsafeWindow) API 的脚本管理器**
 
 
