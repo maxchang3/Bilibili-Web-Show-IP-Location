@@ -1,3 +1,5 @@
+import { patchFunction } from "./path"
+
 interface RouterOption {
     endsWith?: string
 }
@@ -16,6 +18,7 @@ export class Router {
             if (!url.startsWith(route)) continue
             if (option.endsWith && !url.endsWith(option.endsWith)) continue
             routeFunction()
+            patchFunction()
             break
         }
     }
