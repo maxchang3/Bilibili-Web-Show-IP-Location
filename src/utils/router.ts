@@ -1,4 +1,4 @@
-import { patchFunction } from "./path"
+import { patchFunction } from "./patch"
 
 interface RouterOption {
     endsWith?: string
