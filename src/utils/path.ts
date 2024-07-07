@@ -4,7 +4,8 @@ import type { initialState } from "@/types/global"
 // hook AB 测试，强制返回旧版本
 // 来自 b 站评论区开盒（临时先这样吧）
 const hookABTest = () => {
-    let __INITIAL_STATE__: initialState | undefined
+    let __INITIAL_STATE__ = unsafeWindow.__INITIAL_STATE__
+    if (__INITIAL_STATE__?.abtest) __INITIAL_STATE__.abtest.comment_next_version = "DEFAULT"
     Object.defineProperty(unsafeWindow, "__INITIAL_STATE__", {
         get: (): initialState | undefined => __INITIAL_STATE__,
         set: (value: initialState) => {
