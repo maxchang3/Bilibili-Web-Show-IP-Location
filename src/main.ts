@@ -18,7 +18,7 @@ router.serve([
 router.serve( /** 拜年祭*/ "https://www.bilibili.com/festival/", hookBBComment)
 
 router.serve( /** 专栏 */ "https://www.bilibili.com/read/", async () => {
-    hookBBComment()
+    observeAndInjectComments()
     const articleDetail = await isElementLoaded('.article-detail') as ArticleDetail
     await isConditionTrue(() => { // 等待 readViewInfo 加载完毕，后期可能改为 hook 方式
         const readInfo = document.querySelector(".article-read-info")
