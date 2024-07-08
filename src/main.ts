@@ -83,9 +83,9 @@ router.serve("https://t.bilibili.com/", async () => {
  */
 router.serve("https://t.bilibili.com/", async () => {
     const dynItem = await isElementLoaded('.bili-dyn-item')
-    const isNewDyn = !!dynItem.querySelector('.bili-comment-container')
+    const isNewDyn = !dynItem.querySelector('.bili-dyn-item__footer')
     if (isNewDyn) {
-        const commentContainer = await isElementLoaded('.bili-comment-container', dynItem) as HTMLElement
+        const commentContainer = await isElementLoaded('.bili-comment') as HTMLElement
         observeAndInjectComments(commentContainer)
     } else {
         hookBBComment()
