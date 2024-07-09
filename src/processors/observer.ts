@@ -21,7 +21,12 @@ const insertLocation = (replyItemEl: HTMLDivElement) => {
         : replyItemEl.querySelector('.reply-info')
     if (!replyInfo) throw Error('Can not detect reply info')
     const locationString = getLocationFromReply(replyItemEl)
-    if (locationString) replyInfo.children[0].innerHTML += `&nbsp;&nbsp;${locationString}`
+    if (locationString
+        && replyInfo.children.length != 0
+        && !replyInfo.children[0].innerHTML.includes("IP属地")
+    ) {
+        replyInfo.children[0].innerHTML += `&nbsp;&nbsp;${locationString}`
+    }
 }
 
 const isReplyItem = (el: Node): el is HTMLDivElement =>
