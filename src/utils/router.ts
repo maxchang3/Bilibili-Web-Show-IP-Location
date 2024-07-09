@@ -1,24 +1,32 @@
-import { patchFunction } from "./patch"
+import { patch } from "./patch"
 
-interface RouterOption {
+type RouteAction = (...args: any[]) => void | Promise<void>
+
+interface RouteConstrait {
     endsWith?: string
 }
 
+interface Route {
+    prefix: string
+    action: RouteAction
+    constrait: RouteConstrait
+}
+
 export class Router {
-    routes: [route: string, routeFunction: Function, option: RouterOption][] = []
-    serve(route: string | string[], routeFunction: Function, option: RouterOption = {}) {
-        if (Array.isArray(route)) {
-            route.forEach(r => this.routes.push([r, routeFunction, option]))
+    routes: Route[] = []
+    serve(prefix: string | string[], action: RouteAction, constrait: RouteConstrait = {}) {
+        if (Array.isArray(prefix)) {
+            prefix.forEach(p => this.routes.push({ prefix: p, action, constrait }))
             return
         }
-        this.routes.push([route, routeFunction, option])
+        this.routes.push({ prefix, action, constrait })
     }
     match(url: string) {
-        for (let [route, routeFunction, option] of this.routes) {
-            if (!url.startsWith(route)) continue
-            if (option.endsWith && !url.endsWith(option.endsWith)) continue
-            routeFunction()
-            patchFunction()
+        for (let { prefix, action, constrait } of this.routes) {
+            if (!url.startsWith(prefix)) continue
+            if (constrait.endsWith && !url.endsWith(constrait.endsWith)) continue
+            patch()
+            action()
             break
         }
     }
