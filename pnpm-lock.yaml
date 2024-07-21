@@ -22,7 +22,7 @@ importers:
         version: 5.2.0(@types/node@20.12.3)
       vite-plugin-monkey:
         specifier: ^4.0.0
-        version: 4.0.4(vite@5.2.0(@types/node@20.12.3))
+        version: 4.0.5(vite@5.2.0(@types/node@20.12.3))
 
 packages:
 
@@ -164,8 +164,8 @@ packages:
     cpu: [x64]
     os: [win32]
 
-  '@jridgewell/sourcemap-codec@1.4.15':
-    resolution: {integrity: sha512-eF2rxCRulEKXHTRiDrDy6erMYWqNw4LPdQ8UQA4huuxaQsVeRPFl2oM8oDGxMFhJUWZf9McpLtJasDDZb/Bpeg==}
+  '@jridgewell/sourcemap-codec@1.5.0':
+    resolution: {integrity: sha512-gv3ZRaISU3fjPAgNsriBRqGWQL6quFx04YMPW/zD8XMLsU32mhCCbfbO6KZFLjvYpCZ8zyDEgqsgf+PwPaM7GQ==}
 
   '@jsdevtools/ez-spawn@3.0.4':
     resolution: {integrity: sha512-f5DRIOZf7wxogefH03RjMPMdBF7ADTWUMoOs9kaJo06EfwF+aFhMZMDZxHg/Xe12hptN9xoZjGso2fdjapBRIA==}
@@ -258,13 +258,8 @@ packages:
     resolution: {integrity: sha512-MxXdReSRhGO7VlFe1bRG/oI7/mdLV9B9JJT0N8vZOhF7gFRR5l3M8W9G8JxmKV+JC5mGqJ0QvqfSOLsCPa4nUw==}
     engines: {node: '>=0.4.0'}
 
-  acorn@8.11.3:
-    resolution: {integrity: sha512-Y9rRfJG5jcKOE0CLisYbojUjIrIEE7AGMzA/Sm4BslANhbS+cDMpgBdcPT91oJ7OuJ9hYJBx59RjbhxVnrF8Xg==}
-    engines: {node: '>=0.4.0'}
-    hasBin: true
-
-  acorn@8.12.0:
-    resolution: {integrity: sha512-RTvkC4w+KNXrM39/lWCUaG0IbRkWdCv7W/IOW9oU6SawyxulvkQy5HQPVTKxEjczcUvapcrw3cFx/60VN/NRNw==}
+  acorn@8.12.1:
+    resolution: {integrity: sha512-tcpGyI9zbizT9JbV6oYE477V6mTlXvvi0T0G3SNIYE2apm/G5huBa1+K89VGeovbg+jycCrfhl3ADxErOuO6Jg==}
     engines: {node: '>=0.4.0'}
     hasBin: true
 
@@ -726,8 +721,8 @@ packages:
     resolution: {integrity: sha512-KK8xQ1mkzZeg9inewmFVDNkg3l5LUhoq9kN6iWYB/CC9YMG8HA+c1Q8HwDe6dEX7kErrEVNVBO3fWsVq5iDgtw==}
     engines: {node: '>=8'}
 
-  vite-plugin-monkey@4.0.4:
-    resolution: {integrity: sha512-U7G463yGr/IOOzadWwA3Z2CpQR4fvpb6xEO8chwtO1AR4OQUDSQu9s/UbAUNBufav3YDkb69d2LUZtfkTRIdsA==}
+  vite-plugin-monkey@4.0.5:
+    resolution: {integrity: sha512-73yVYJJnOVTTOvCSCor8JFN2nYMVKScjzZkMrjNcupToDh3pWupb6qYf/mdTomz2Hjp7tYUh12WvBw6qnIVLdA==}
     peerDependencies:
       vite: ^5.0.0
     peerDependenciesMeta:
@@ -841,7 +836,7 @@ snapshots:
   '@esbuild/win32-x64@0.20.2':
     optional: true
 
-  '@jridgewell/sourcemap-codec@1.4.15': {}
+  '@jridgewell/sourcemap-codec@1.5.0': {}
 
   '@jsdevtools/ez-spawn@3.0.4':
     dependencies:
@@ -909,11 +904,9 @@ snapshots:
 
   acorn-walk@8.3.3:
     dependencies:
-      acorn: 8.12.0
+      acorn: 8.12.1
 
-  acorn@8.11.3: {}
-
-  acorn@8.12.0: {}
+  acorn@8.12.1: {}
 
   anymatch@3.1.3:
     dependencies:
@@ -1199,7 +1192,7 @@ snapshots:
 
   magic-string@0.30.10:
     dependencies:
-      '@jridgewell/sourcemap-codec': 1.4.15
+      '@jridgewell/sourcemap-codec': 1.5.0
 
   merge-stream@2.0.0: {}
 
@@ -1229,7 +1222,7 @@ snapshots:
 
   mlly@1.7.1:
     dependencies:
-      acorn: 8.11.3
+      acorn: 8.12.1
       pathe: 1.1.2
       pkg-types: 1.1.1
       ufo: 1.5.3
@@ -1393,7 +1386,7 @@ snapshots:
 
   untildify@4.0.0: {}
 
-  vite-plugin-monkey@4.0.4(vite@5.2.0(@types/node@20.12.3)):
+  vite-plugin-monkey@4.0.5(vite@5.2.0(@types/node@20.12.3)):
     dependencies:
       acorn-walk: 8.3.3
       cross-spawn: 7.0.3
