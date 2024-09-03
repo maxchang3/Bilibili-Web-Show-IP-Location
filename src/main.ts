@@ -2,6 +2,7 @@ import {
     observeAndInjectComments,
     serveNewComments,
     hookBBComment,
+    hookLit
 } from "@/processors"
 import { isElementLoaded, isConditionTrue, Router } from "@/utils/"
 import type { ArticleDetail } from "@/types/cv"
@@ -13,7 +14,7 @@ router.serve([
     /** 新列表 */ "https://www.bilibili.com/list/",
     /** 新版单独动态页 */ "https://www.bilibili.com/opus/",
     /** 课程页 */ "https://www.bilibili.com/cheese/play/"
-], observeAndInjectComments)
+], hookLit)
 
 router.serve( /** 拜年祭*/ "https://www.bilibili.com/festival/", hookBBComment)
 
@@ -72,7 +73,7 @@ router.serve("https://t.bilibili.com/", async () => {
         return dynBtnText ? dynBtnText.includes("新版反馈") || dynBtnText.includes("回到旧版") : false
     })()
     if (isNewDyn) {
-        serveNewComments(".bili-dyn-home--member")
+        hookLit()
     } else {
         hookBBComment()
     }
@@ -85,8 +86,7 @@ router.serve("https://t.bilibili.com/", async () => {
     const dynItem = await isElementLoaded('.bili-dyn-item')
     const isNewDyn = !dynItem.querySelector('.bili-dyn-item__footer')
     if (isNewDyn) {
-        const commentContainer = await isElementLoaded('.bili-comment') as HTMLElement
-        observeAndInjectComments(commentContainer)
+        hookLit()
     } else {
         hookBBComment()
     }
