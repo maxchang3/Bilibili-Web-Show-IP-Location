@@ -26,8 +26,8 @@ router.serve( /** 专栏 */ "https://www.bilibili.com/read/", async () => {
         return !!(readInfo && readInfo.lastElementChild?.textContent !== "--评论")
     })
     const publishText = articleDetail.querySelector(".publish-text")
-    if (!publishText || !articleDetail.__vue__?.readViewInfo) return
-    publishText.innerHTML += `&nbsp;&nbsp;IP属地：${articleDetail.__vue__?.readViewInfo?.location}`
+    if (!publishText || !articleDetail.__vue__?.readViewInfo?.location) return
+    publishText.innerHTML += `&nbsp;&nbsp;IP属地：${articleDetail.__vue__.readViewInfo.location}`
 
 })
 
