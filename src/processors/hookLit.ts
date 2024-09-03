@@ -32,7 +32,7 @@ const createPatch = (ActionButtonsRender: Constructor<ActionButtonsRender>) => {
 
 export const hookLit = () => {
     const { define: originalDefine } = unsafeWindow.customElements
-    const applyHandler = <T extends typeof customElements.define>(
+    const applyHandler = <T extends typeof originalDefine>(
         target: T,
         thisArg: ActionButtonsRender,
         args: Parameters<T>
