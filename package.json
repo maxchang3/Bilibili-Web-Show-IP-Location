@@ -1,18 +1,22 @@
 {
   "name": "bilibili-web-show-ip-location",
-  "private": true,
-  "version": "1.6.0",
   "type": "module",
+  "version": "1.6.0",
+  "private": true,
   "scripts": {
     "dev": "vite",
     "build": "tsc && vite build",
     "preview": "vite preview",
     "release": "bumpp",
-    "typecheck": "tsc --noEmit"
+    "typecheck": "tsc --noEmit",
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix"
   },
   "devDependencies": {
+    "@antfu/eslint-config": "^3.1.0",
     "@types/node": "^20.2.3",
     "bumpp": "^9.2.0",
+    "eslint-plugin-format": "^0.1.2",
     "typescript": "^5.0.4",
     "vite": "^5.0.10",
     "vite-plugin-monkey": "^4.0.0"
