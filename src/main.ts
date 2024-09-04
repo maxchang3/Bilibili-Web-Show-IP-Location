@@ -37,8 +37,7 @@ router.serve('https://www.bilibili.com/bangumi/play/', () => {
     const isNewBangumi = !!document.querySelector('meta[name=next-head-count]')
     if (isNewBangumi) {
         observeAndInjectComments()
-    }
-    else {
+    } else {
         hookBBComment()
     }
 })
@@ -74,8 +73,7 @@ router.serve('https://t.bilibili.com/', async () => {
     })()
     if (isNewDyn) {
         hookLit()
-    }
-    else {
+    } else {
         hookBBComment()
     }
 }, { endsWith: '/' })
@@ -88,8 +86,7 @@ router.serve('https://t.bilibili.com/', async () => {
     const isNewDyn = !dynItem.querySelector('.bili-dyn-item__footer')
     if (isNewDyn) {
         hookLit()
-    }
-    else {
+    } else {
         hookBBComment()
     }
 })

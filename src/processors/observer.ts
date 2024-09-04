@@ -8,8 +8,7 @@ const getLocationFromReply = (replyItemEl: HTMLDivElement) => {
     if (replyItemEl.className.startsWith('sub')) {
         replyElement = replyItemEl as SubReplyElement
         locationString = getLocationString(replyElement?.__vue__.vnode.props.subReply)
-    }
-    else {
+    } else {
         replyElement = replyItemEl as ReplyElement
         locationString = getLocationString(replyElement?.__vue__.vnode.props.reply)
     }
