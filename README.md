@@ -1,3 +1,6 @@
+> [!IMPORTANT]
+> 由于本脚本的逻辑是根据不同的 URL 路由来对应相应的场景，而 B 站前端的评论区代码实际上混合了三种不同的实现方式，因此每次 B 站前端更新都有可能导致原有逻辑失效。如果遇到相关场景无法正常显示的情况，欢迎及时反馈。
+
 <p align="center">
     <img src="./assets/banner.jpg" width = "50%">
     <img src="./assets/preview.png" width = "50%">
@@ -29,11 +32,19 @@
 
 ## 原理
 
-对于旧版评论，通过拦截（Hook） `window.bbComment` 的方式，重写评论插入事件，插入 IP 属地。
+> [!NOTE]
+> 「旧版」指在当前新版页面下，通过「返回旧版」按钮进入的页面。新版设计较旧版更加紧凑和扁平化，字体也更大。
 
-对于新版评论，通过 [Hook Vue3 app](https://greasyfork.org/scripts/449444)（自 V1.5.8+） 挂载不同的 `__vue__`  到相应元素。通过 `MutationObserver` 监听评论插入事件，获取评论元素的 IP 属地并插入。
+目前，哔哩哔哩前端的评论区实现方式有三种：
 
-对于新·新版评论（基于 Lit 的 Web Components），通过拦截 `window.customElements.define` 的方式，重写 `update()` 方法，插入 IP 属地。
+- 旧版评论：基于 Vue 2 实现，目前仅在旧版页面和部分场景存在。
+  - 实现原理：通过 Hook `window.bbComment` ，重写评论插入事件，插入 IP 属地。
+
+- 新版评论：基于 Vue 3 实现（comment-pc-vue.next.js），目前存在于新版的大部分场景。
+  - 实现原理：通过 [Hook Vue3 app](https://greasyfork.org/scripts/449444)（自 V1.5.8+，之前无须挂载） 挂载不同的 `__vue__` 到相应元素。通过 `MutationObserver` 监听评论插入事件，获取评论元素中的 IP 属地并插入。
+
+- 新·新版评论：基于 Lit 的 Web Component（comment-pc-elements.next.js），目前存在于部分新版页面。
+  - 实现原理：通过 Hook `window.customElements.define` 的方式，拦截 `ActionButtonsRender`，继承并重写 `update()` 方法，插入 IP 属地。
 
 ## 一些说明
 
