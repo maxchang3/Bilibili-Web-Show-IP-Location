@@ -14,13 +14,15 @@ body:
     id: url
     attributes:
       label: 需要适配的网址
-      description: 请提供需要适配的网址
+      description: 如果是新增适配网址，请提供网址
       placeholder: https://bilibili.com/....
+
   - type: textarea
     id: description
     attributes:
       label: 描述功能
       description: 简短描述需要新增的功能
+
   - type: textarea
     id: screenshots
     attributes:
