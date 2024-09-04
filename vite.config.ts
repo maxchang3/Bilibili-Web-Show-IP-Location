@@ -29,6 +29,7 @@ export default defineConfig({
                     'https://www.bilibili.com/festival/*',
                     'https://www.bilibili.com/blackroom/ban/*',
                     'https://www.bilibili.com/read/*',
+                    'https://manga.bilibili.com/detail/*',
                 ],
                 'run-at': 'document-start',
                 'license': 'MIT',

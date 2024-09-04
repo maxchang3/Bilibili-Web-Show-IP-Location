@@ -96,4 +96,9 @@ router.serve('https://t.bilibili.com/', async () => {
  */
 router.serve('https://www.bilibili.com/blackroom/ban/', () => hookBBComment({ blackroom: true }))
 
+/**
+ * 漫画详情页
+ */
+router.serve('https://manga.bilibili.com/detail/', observeAndInjectComments)
+
 router.match(location.href)
