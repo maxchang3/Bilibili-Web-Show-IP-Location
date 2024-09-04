@@ -32,11 +32,6 @@ jobs:
         run: |
           pnpm build
 
-      - name: Check if tag contains 'beta'
-        id: check_tag
-        run: echo "::set-output name=beta::$(if [[ "${{ github.ref }}" == *"beta"* ]]; then echo 'true'; else echo 'false'; fi)"
-        shell: bash
-    
       - name: Create Release with Changelog
         run: pnpx changelogithub
         env:
