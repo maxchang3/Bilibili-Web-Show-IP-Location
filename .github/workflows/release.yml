@@ -37,10 +37,7 @@ jobs:
         run: echo "::set-output name=beta::$(if [[ "${{ github.ref }}" == *"beta"* ]]; then echo 'true'; else echo 'false'; fi)"
         shell: bash
     
-      - name: Release
-        uses: "marvinpinto/action-automatic-releases@latest"
-        with:
-          repo_token: "${{ secrets.ACCESS_TOKEN }}"
-          prerelease: ${{ steps.check_tag.outputs.beta }}
-          files: |
-            dist/*
+      - name: Create Release with Changelog
+        run: pnpx changelogithub
+        env:
+          GITHUB_TOKEN: ${{ secrets.ACCESS_TOKEN }}
