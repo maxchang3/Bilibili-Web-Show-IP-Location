@@ -29,6 +29,15 @@
 
 [[Greasy Fork](https://greasyfork.org/zh-CN/scripts/466815)] [[Github Release](https://github.com/MaxChang3/Bilibili-Web-Show-IP-Location/releases/latest/download/bilibili-web-show-ip-location.user.js)]
 
+## 常见问题
+
+- **我的评论区没有显示 IP 属地？**
+  - 请确定你所在的场景是否支持，脚本是否为最新版本，脚本是否正常运行。
+  - B 站的 IP 属地功能上线之前的评论将不会显示 IP 属地。
+  - 排除以上情况后，可能是脚本逻辑失效，欢迎反馈。
+- **个人主页的 IP 属地 没有显示？**
+  - 个人主页的 IP 属地显示需要调用移动端的接口，目前没有找到合适的方法，所以暂时不支持。
+
 ## 原理
 
 > [!NOTE]
@@ -44,12 +53,6 @@
 
 - 新·新版评论：基于 Lit 的 Web Component（comment-pc-elements.next.js），目前存在于部分新版页面。
   - 策略：通过 Hook `window.customElements.define` 的方式，拦截 `ActionButtonsRender`，继承并重写 `update()` 方法，插入 IP 属地。
-
-## 一些说明
-
-1. 目前哔哩哔哩网页端存在三种评论系统，分别是旧版评论、新版评论、新·新版评论。由于新·新版评论是基于 Lit 实现的，通过继承修改类的实现还是比较方便的，未来哔哩哔哩应该会全量上线该评论系统，这样之前 Observer 的实现就可以删除了。
-2. **个人主页的 IP 显示需要调用移动端的接口，目前没有找到合适的方法，所以暂时不支持。**
-3. 没有意外的话 b 站终有一日会在 Web 前端实现 IP 属地展示功能，那么那时候本项目的使命就自然结束了。也许以后会将之前做过的几个哔哩哔哩相关的用户脚本都集成到一个里面。
 
 ## 感谢
 
