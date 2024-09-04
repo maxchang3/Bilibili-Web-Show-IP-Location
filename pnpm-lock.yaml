@@ -28,7 +28,7 @@ importers:
         version: 5.2.0(@types/node@20.12.3)
       vite-plugin-monkey:
         specifier: ^4.0.0
-        version: 4.0.5(vite@5.2.0(@types/node@20.12.3))
+        version: 4.0.6(vite@5.2.0(@types/node@20.12.3))
 
 packages:
 
@@ -1334,9 +1334,6 @@ packages:
   lodash@4.17.21:
     resolution: {integrity: sha512-v2kDEe57lecTulaDIuNTPy3Ry4gLGJ6Z1O3vE1krgXZNrsQ+LFTGHVxVjcXPs17LhbZVGedAJv8XZ1tvj5FvSg==}
 
-  magic-string@0.30.10:
-    resolution: {integrity: sha512-iIRwTIf0QKV3UAnYK4PU8uiEc4SRh5jX0mwpIwETPpHdhVM4f53RSwS/vXvN1JhGX+Cs7B8qIq3d6AH49O5fAQ==}
-
   magic-string@0.30.11:
     resolution: {integrity: sha512-+Wri9p0QHMy+545hKww7YAu5NyzF8iomPL/RQazugQ9+Ez4Ic3mERMd8ZTX5rfK944j+560ZJi8iAwgak1Ac7A==}
 
@@ -1534,9 +1531,6 @@ packages:
 
   perfect-debounce@1.0.0:
     resolution: {integrity: sha512-xCy9V055GLEqoFaHoC1SoLIaLmWctgCUaBaWxDZ7/Zx4CTyX7cJQLJOok/orfjZAh9kEYpjJa4d0KcJmCbctZA==}
-
-  picocolors@1.0.1:
-    resolution: {integrity: sha512-anP1Z8qwhkbmu7MFP5iTt+wQKXgwzf7zTyGlcdzabySa9vd0Xt392U0rVmz9poOaBj0uHJKyyo9/upk0HrEQew==}
 
   picocolors@1.1.0:
     resolution: {integrity: sha512-TQ92mBOW0l3LeMeyLV6mzy/kWr8lkd/hp3mTg7wYK7zJhuBStmGMBG0BdeDZS/dZx1IukaX6Bk11zcln25o1Aw==}
@@ -1856,8 +1850,8 @@ packages:
   validate-npm-package-license@3.0.4:
     resolution: {integrity: sha512-DpKm2Ui/xN7/HQKCtpZxoRWBhZ9Z0kqtygG8XCgNQ8ZlDnxuQmWhj566j8fN4Cu3/JmbhsDo7fcAJq4s9h27Ew==}
 
-  vite-plugin-monkey@4.0.5:
-    resolution: {integrity: sha512-73yVYJJnOVTTOvCSCor8JFN2nYMVKScjzZkMrjNcupToDh3pWupb6qYf/mdTomz2Hjp7tYUh12WvBw6qnIVLdA==}
+  vite-plugin-monkey@4.0.6:
+    resolution: {integrity: sha512-JiJqlDhU/4xkAMDuJV/iR2QQXqQG+YGmSNubJTumcNQr4T+DQlQ7+VP6zbdAGDO/vVfSReDn+Ztr5bcFu0GIww==}
     peerDependencies:
       vite: ^5.0.0
     peerDependenciesMeta:
@@ -3275,10 +3269,6 @@ snapshots:
 
   lodash@4.17.21: {}
 
-  magic-string@0.30.10:
-    dependencies:
-      '@jridgewell/sourcemap-codec': 1.5.0
-
   magic-string@0.30.11:
     dependencies:
       '@jridgewell/sourcemap-codec': 1.5.0
@@ -3480,8 +3470,6 @@ snapshots:
 
   perfect-debounce@1.0.0: {}
 
-  picocolors@1.0.1: {}
-
   picocolors@1.1.0: {}
 
   picomatch@2.3.1: {}
@@ -3510,7 +3498,7 @@ snapshots:
   postcss@8.4.37:
     dependencies:
       nanoid: 3.3.7
-      picocolors: 1.0.1
+      picocolors: 1.1.0
       source-map-js: 1.2.0
 
   postcss@8.4.45:
@@ -3778,16 +3766,16 @@ snapshots:
       spdx-correct: 3.2.0
       spdx-expression-parse: 3.0.1
 
-  vite-plugin-monkey@4.0.5(vite@5.2.0(@types/node@20.12.3)):
+  vite-plugin-monkey@4.0.6(vite@5.2.0(@types/node@20.12.3)):
     dependencies:
       acorn-walk: 8.3.3
       cross-spawn: 7.0.3
       htmlparser2: 9.1.0
       import-meta-resolve: 4.1.0
-      magic-string: 0.30.10
+      magic-string: 0.30.11
       mrmime: 1.0.1
       open: 9.1.0
-      picocolors: 1.0.1
+      picocolors: 1.1.0
       systemjs: 6.15.1
     optionalDependencies:
       vite: 5.2.0(@types/node@20.12.3)
