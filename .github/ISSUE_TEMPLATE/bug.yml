@@ -9,7 +9,7 @@ body:
         ##  提交问题前请先注意以下事项
         + 如无特殊情况，请使用**最新版本**的脚本。
         + 确保你的浏览器和用户脚本管理器是最新版本。
-        + 请先查看[常见问题](README.md#常见问题)是否有解决方案。
+        + 请先查看[常见问题](https://github.com/maxchang3/Bilibili-Web-Show-IP-Location#常见问题)是否有解决方案。
   - type: input
     id: version
     attributes:
