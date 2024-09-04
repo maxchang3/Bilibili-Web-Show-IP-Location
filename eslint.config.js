@@ -20,6 +20,6 @@ export default defineConfig({
         'jsonc/indent': ['error', 2],
         'jsdoc/require-returns-description': 'off',
         'style/max-statements-per-line': 'off',
-        'ts/method-signature-style': 'off',
+        'ts/method-signature-style': ['error', 'method'],
     },
 })
