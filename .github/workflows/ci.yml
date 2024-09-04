@@ -31,4 +31,7 @@ jobs:
           cache: pnpm
 
       - name: Typecheck
-        run: pnpm run typecheck
+        run: pnpm typecheck
+
+      - name: Lint
+        run: pnpm lint
