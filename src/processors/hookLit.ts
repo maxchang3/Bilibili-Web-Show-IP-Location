@@ -16,7 +16,11 @@ const createPatch = (ActionButtonsRender: Constructor<ActionButtonsRender>) => {
             const pubDateEl = this.shadowRoot!.querySelector('#pubdate') as HTMLDivElement | null
             if (!pubDateEl) return
             let locationEl = this.shadowRoot!.querySelector('#location') as HTMLDivElement | null
-            const locationString = getLocationString(this.data) ?? ""
+            const locationString = getLocationString(this.data)
+            if (!locationString) {
+                if (locationEl) locationEl.remove()
+                return
+            }
             if (locationEl) {
                 locationEl.innerText = locationString
                 return
