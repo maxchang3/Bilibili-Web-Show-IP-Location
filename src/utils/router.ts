@@ -1,4 +1,4 @@
-import { patch } from "./patch"
+import { patch } from './patch'
 
 type RouteAction = (...args: any[]) => void | Promise<void>
 
@@ -21,8 +21,9 @@ export class Router {
         }
         this.routes.push({ prefix, action, constrait })
     }
+
     match(url: string) {
-        for (let { prefix, action, constrait } of this.routes) {
+        for (const { prefix, action, constrait } of this.routes) {
             if (!url.startsWith(prefix)) continue
             if (constrait.endsWith && !url.endsWith(constrait.endsWith)) continue
             patch()

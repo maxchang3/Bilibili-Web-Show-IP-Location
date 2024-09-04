@@ -25,7 +25,7 @@ export type CreateSubReplyItem = (item: Reply, i: number) => string
 
 export interface bbComment {
     prototype: {
-        _createListCon: CreateListCon,
+        _createListCon: CreateListCon
         _createSubReplyItem: CreateSubReplyItem
     }
 }
@@ -60,21 +60,20 @@ export interface Reply {
     dynamic_id_str: string
 }
 
-export type ReplyAPIData = {
-    code: number,
+export interface ReplyAPIData {
+    code: number
     data: {
         top?: {
-            admin: string | null,
+            admin: string | null
             upper: Reply | null
             vote: string | null
-        },
-        top_replies?: Reply[],
+        }
+        top_replies?: Reply[]
         replies: Reply[]
-    },
-    message: string,
+    }
+    message: string
     ttl: number
 }
-
 
 interface Content {
     message: string

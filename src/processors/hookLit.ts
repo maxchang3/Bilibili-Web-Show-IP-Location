@@ -1,6 +1,6 @@
-import { unsafeWindow } from "$"
-import { getLocationString } from "@/utils"
-import type { Reply } from "@/types/reply"
+import { unsafeWindow } from '$'
+import { getLocationString } from '@/utils'
+import type { Reply } from '@/types/reply'
 
 interface ActionButtonsRender extends HTMLElement {
     data: Reply
@@ -22,12 +22,12 @@ const createPatch = (ActionButtonsRender: Constructor<ActionButtonsRender>) => {
                 return
             }
             if (locationEl) {
-                locationEl.innerText = locationString
+                locationEl.textContent = locationString
                 return
             }
             locationEl = document.createElement('div')
             locationEl.id = 'location'
-            locationEl.innerText = locationString
+            locationEl.textContent = locationString
             pubDateEl.insertAdjacentElement('afterend', locationEl)
         }
     }
@@ -39,12 +39,12 @@ export const hookLit = () => {
     const applyHandler = <T extends typeof originalDefine>(
         target: T,
         thisArg: ActionButtonsRender,
-        args: Parameters<T>
+        args: Parameters<T>,
     ) => {
         const [name, constructor, ...rest] = args
         if (
-            typeof constructor !== "function" ||
-            name !== 'bili-comment-action-buttons-renderer'
+            typeof constructor !== 'function'
+            || name !== 'bili-comment-action-buttons-renderer'
         ) return Reflect.apply(target, thisArg, args)
         const PatchActionButtonsRender = createPatch(constructor as Constructor<ActionButtonsRender>)
         return Reflect.apply(target, thisArg, [name, PatchActionButtonsRender, ...rest])

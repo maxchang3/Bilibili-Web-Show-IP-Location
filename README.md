@@ -25,7 +25,6 @@
 
 仅测试于 Chrome 113+ ([tampermonkey](https://github.com/Tampermonkey/tampermonkey)) / Safari 16.4+ ([Stay](https://github.com/shenruisi/Stay))。**需要使用支持 [unsafeWindow](https://www.tampermonkey.net/documentation.php#api:unsafeWindow) API 的脚本管理器**
 
-
 ## 安装
 
 [[Greasy Fork](https://greasyfork.org/zh-CN/scripts/466815)] [[Github Release](https://github.com/MaxChang3/Bilibili-Web-Show-IP-Location/releases/latest/download/bilibili-web-show-ip-location.user.js)]
@@ -58,7 +57,7 @@
   - 灵感来源
   - 参考了部分代码
 
-- [vite-plugin-monkey](https://github.com/lisonge/vite-plugin-monkey) 
+- [vite-plugin-monkey](https://github.com/lisonge/vite-plugin-monkey)
   - 提供最佳开发体验
 
 - [Hook Vue3 app](https://greasyfork.org/scripts/449444)
