@@ -6,11 +6,13 @@ on:
       - main
     paths:
       - "**.ts"
+      - ".github/workflows/**"
   pull_request:
     branches:
       - main
     paths:
       - "**.ts"
+      - ".github/workflows/**"
 
 jobs:
   typecheck:
