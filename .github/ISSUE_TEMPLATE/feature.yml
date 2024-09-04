@@ -9,23 +9,14 @@ body:
         ##  提交问题前请先注意以下事项
         + 以下功能暂时不在考虑范围内：
           - 个人空间的  IP 属地显示
-
   - type: input
     id: url
     attributes:
       label: 需要适配的网址
       description: 如果是新增适配网址，请提供网址
       placeholder: https://bilibili.com/....
-
   - type: textarea
     id: description
     attributes:
       label: 描述功能
       description: 简短描述需要新增的功能
-
-  - type: textarea
-    id: screenshots
-    attributes:
-      label: 截图
-      description: 如有截图，请在此处粘贴或上传。
-      placeholder: 粘贴或上传截图。

@@ -56,9 +56,3 @@ body:
       placeholder: |-
         1. 进入 '...' 网址
         2. 点击 '....'
-  - type: textarea
-    id: screenshots
-    attributes:
-      label: 截图
-      description: 如有截图，请在此处粘贴或上传。
-      placeholder: 粘贴或上传截图。
