@@ -26,10 +26,10 @@ jobs:
           version: 9
           run_install: true
 
-      - name: Set node
+      - name: Setup node
         uses: actions/setup-node@v4
         with:
-          node-version: 16.x
+          node-version: 20
           cache: pnpm
 
       - name: Typecheck

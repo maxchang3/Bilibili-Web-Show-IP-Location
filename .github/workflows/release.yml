@@ -15,34 +15,18 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Setup Node.js environment
-        uses: actions/setup-node@v4.0.3
-        with:
-          node-version: 18
-
       - uses: pnpm/action-setup@v4
         name: Install pnpm
         id: pnpm-install
         with:
           version: 9
-          run_install: false
+          run_install: true
 
-      - name: Get pnpm store directory
-        id: pnpm-cache
-        shell: bash
-        run: |
-          echo "STORE_PATH=$(pnpm store path)" >> $GITHUB_OUTPUT
-
-      - uses: actions/cache@v4
-        name: Setup pnpm cache
+      - name: Setup node
+        uses: actions/setup-node@v4
         with:
-          path: ${{ steps.pnpm-cache.outputs.STORE_PATH }}
-          key: ${{ runner.os }}-pnpm-store-${{ hashFiles('**/pnpm-lock.yaml') }}
-          restore-keys: |
-            ${{ runner.os }}-pnpm-store-
-
-      - name: Install dependencies
-        run: pnpm install
+          node-version: 20
+          cache: pnpm
 
       - name: Build
         run: |
