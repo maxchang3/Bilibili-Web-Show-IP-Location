@@ -6,7 +6,7 @@
     <img src="./assets/preview.png" width = "50%">
 </p>
 
-# 哔哩哔哩网页版展示 IP 属地
+# 哔哩哔哩网页版显示 IP 属地
 # Bilibili-Web-Show-IP-Location
 
 > 我不喜欢 IP 属地，但是你手机都显示了，为什么电脑不显示呢？

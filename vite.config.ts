@@ -13,7 +13,7 @@ export default defineConfig({
         monkey({
             entry: 'src/main.ts',
             userscript: {
-                'name': '哔哩哔哩网页版展示 IP 属地',
+                'name': '哔哩哔哩网页版显示 IP 属地 B站 Bilibili IP 属地显示',
                 'icon': 'https://www.bilibili.com/favicon.ico',
                 'namespace': 'http://zhangmaimai.com',
                 'author': 'MaxChang3',
@@ -33,7 +33,7 @@ export default defineConfig({
                 ],
                 'run-at': 'document-start',
                 'license': 'MIT',
-                'description': '我不喜欢 IP 属地，但是你手机都显示了，为什么电脑不显示呢？',
+                'description': '我不喜欢 IP 属地，但是你手机都显示了，为什么电脑不显示呢？显示网页版 B 站 IP 属地，支持大部分场景的评论区',
                 'require': 'https://update.greasyfork.org/scripts/449444/1081400/Hook%20Vue3%20app.js',
             },
         }),
