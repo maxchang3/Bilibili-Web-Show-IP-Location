@@ -4,7 +4,7 @@ import {
     observeAndInjectComments,
     serveNewComments,
 } from '@/processors'
-import { Router, isConditionTrue, isElementLoaded } from '@/utils/'
+import { isConditionTrue, isElementLoaded, Router } from '@/utils/'
 import type { ArticleDetail } from '@/types/cv'
 
 const router = new Router()

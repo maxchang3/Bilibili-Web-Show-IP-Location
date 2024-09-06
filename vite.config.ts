@@ -1,6 +1,6 @@
 import { fileURLToPath } from 'node:url'
-import monkey from 'vite-plugin-monkey'
 import { defineConfig } from 'vite'
+import monkey from 'vite-plugin-monkey'
 
 // https://vitejs.dev/config/
 export default defineConfig({
