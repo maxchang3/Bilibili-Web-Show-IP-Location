@@ -41,15 +41,13 @@
 
 ## 原理
 
-> [!NOTE]
-> 「旧版」指在当前新版页面下，通过「返回旧版」按钮进入的页面。新版设计较旧版更加紧凑和扁平化，字体也更大。
 
 目前，哔哩哔哩前端的评论区实现方式有三种：
 
 - 旧版评论：基于 Vue 2 实现，目前仅在旧版页面和部分场景存在。
   - 策略：通过 Hook `window.bbComment` ，重写评论插入事件，插入 IP 属地。
 
-- 新版评论：基于 Vue 3 实现（comment-pc-vue.next.js），目前存在于新版的大部分场景。
+- 新版评论：基于 Vue 3 实现（comment-pc-vue.next.js），目前存在于新版的大部分场景。新版设计较旧版更加紧凑和扁平化，字体也更大。
   - 策略：通过 [Hook Vue3 app](https://greasyfork.org/scripts/449444)（自 V1.5.8+，之前无须挂载） 挂载不同的 `__vue__` 到相应元素。通过 `MutationObserver` 监听评论插入事件，获取评论元素中的 IP 属地并插入。
 
 - 新·新版评论：基于 Lit 的 Web Component（comment-pc-elements.next.js），目前存在于部分新版页面。
