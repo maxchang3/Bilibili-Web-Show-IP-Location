@@ -1,6 +1,6 @@
+import type { Reply } from '@/types/reply'
 import { unsafeWindow } from '$'
 import { getLocationString } from '@/utils'
-import type { Reply } from '@/types/reply'
 
 interface ActionButtonsRender extends HTMLElement {
     data: Reply

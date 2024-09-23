@@ -1,3 +1,4 @@
+import type { ArticleDetail } from '@/types/cv'
 import {
     hookBBComment,
     hookLit,
@@ -5,7 +6,6 @@ import {
     serveNewComments,
 } from '@/processors'
 import { isConditionTrue, isElementLoaded, Router } from '@/utils/'
-import type { ArticleDetail } from '@/types/cv'
 
 const router = new Router()
 
