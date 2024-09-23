@@ -9,8 +9,8 @@ importers:
   .:
     dependencies:
       '@maxchang/eslint-config':
-        specifier: ^1.0.3
-        version: 1.0.3(@typescript-eslint/utils@8.7.0(eslint@9.9.1(jiti@1.21.6))(typescript@5.6.2))(@vue/compiler-sfc@3.5.8)(eslint-plugin-format@0.1.2(eslint@9.9.1(jiti@1.21.6)))(eslint@9.9.1(jiti@1.21.6))(typescript@5.6.2)
+        specifier: ^1.0.6
+        version: 1.0.6(@typescript-eslint/utils@8.7.0(eslint@9.9.1(jiti@1.21.6))(typescript@5.6.2))(@vue/compiler-sfc@3.5.8)(eslint-plugin-format@0.1.2(eslint@9.9.1(jiti@1.21.6)))(eslint@9.9.1(jiti@1.21.6))(typescript@5.6.2)
     devDependencies:
       '@types/node':
         specifier: ^20.2.3
@@ -326,8 +326,8 @@ packages:
     resolution: {integrity: sha512-f5DRIOZf7wxogefH03RjMPMdBF7ADTWUMoOs9kaJo06EfwF+aFhMZMDZxHg/Xe12hptN9xoZjGso2fdjapBRIA==}
     engines: {node: '>=10'}
 
-  '@maxchang/eslint-config@1.0.3':
-    resolution: {integrity: sha512-HJRqO9SZQaQw6c55O0yVykXvfzxQG+c14IYQxlBxqOyjhRtY+a4IFhavdQW6I0wjiTTZSZ9Tk/NNsID8nEQMug==}
+  '@maxchang/eslint-config@1.0.6':
+    resolution: {integrity: sha512-9ljVVHX8d1l1VBxt4ZAI/SgJsslCj6/fMbKickzs8vTr992o9/ipV33kvwKBdWCY1VHB4urYDKDuQxnvo7zAzg==}
 
   '@nodelib/fs.scandir@2.1.5':
     resolution: {integrity: sha512-vq24Bq3ym5HEQm2NKCr3yXDwjc7vTsEThRDnkp2DK9p1uqLR+DHurm/NOTo0KG7HYHU7eppKZj3MyqYuMBf62g==}
@@ -2276,7 +2276,7 @@ snapshots:
       string-argv: 0.3.2
       type-detect: 4.1.0
 
-  '@maxchang/eslint-config@1.0.3(@typescript-eslint/utils@8.7.0(eslint@9.9.1(jiti@1.21.6))(typescript@5.6.2))(@vue/compiler-sfc@3.5.8)(eslint-plugin-format@0.1.2(eslint@9.9.1(jiti@1.21.6)))(eslint@9.9.1(jiti@1.21.6))(typescript@5.6.2)':
+  '@maxchang/eslint-config@1.0.6(@typescript-eslint/utils@8.7.0(eslint@9.9.1(jiti@1.21.6))(typescript@5.6.2))(@vue/compiler-sfc@3.5.8)(eslint-plugin-format@0.1.2(eslint@9.9.1(jiti@1.21.6)))(eslint@9.9.1(jiti@1.21.6))(typescript@5.6.2)':
     dependencies:
       '@antfu/eslint-config': 3.7.1(@typescript-eslint/utils@8.7.0(eslint@9.9.1(jiti@1.21.6))(typescript@5.6.2))(@vue/compiler-sfc@3.5.8)(eslint-plugin-format@0.1.2(eslint@9.9.1(jiti@1.21.6)))(eslint@9.9.1(jiti@1.21.6))(typescript@5.6.2)
     transitivePeerDependencies:
