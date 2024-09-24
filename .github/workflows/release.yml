@@ -10,11 +10,17 @@ on:
 jobs:
   release:
     name: "Release"
+
+    permissions:
+      contents: write
+
     runs-on: "ubuntu-latest"
 
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
 
       - uses: pnpm/action-setup@v4
         name: Install pnpm
@@ -36,4 +42,4 @@ jobs:
       - name: Create Release with Changelog
         run: pnpx changelogithub
         env:
-          GITHUB_TOKEN: ${{ secrets.ACCESS_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
