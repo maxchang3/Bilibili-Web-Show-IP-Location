@@ -13,8 +13,8 @@ importers:
         version: 1.0.8(@typescript-eslint/utils@8.7.0(eslint@9.9.1(jiti@1.21.6))(typescript@5.6.2))(@vue/compiler-sfc@3.5.8)(eslint-plugin-format@0.1.2(eslint@9.9.1(jiti@1.21.6)))(eslint@9.9.1(jiti@1.21.6))(typescript@5.6.2)
     devDependencies:
       '@types/node':
-        specifier: ^20.2.3
-        version: 20.12.3
+        specifier: ^22.0.0
+        version: 22.8.2
       bumpp:
         specifier: ^9.2.0
         version: 9.6.0
@@ -26,10 +26,10 @@ importers:
         version: 5.6.2
       vite:
         specifier: ^5.0.10
-        version: 5.2.0(@types/node@20.12.3)
+        version: 5.2.0(@types/node@22.8.2)
       vite-plugin-monkey:
         specifier: ^4.0.0
-        version: 4.0.6(vite@5.2.0(@types/node@20.12.3))
+        version: 4.0.6(vite@5.2.0(@types/node@22.8.2))
 
 packages:
 
@@ -432,8 +432,8 @@ packages:
   '@types/ms@0.7.34':
     resolution: {integrity: sha512-nG96G3Wp6acyAgJqGasjODb+acrI7KltPiRxzHPXnP3NgI28bpQDRv53olbqGXbfcgF5aiiHmO3xpwEpS5Ld9g==}
 
-  '@types/node@20.12.3':
-    resolution: {integrity: sha512-sD+ia2ubTeWrOu+YMF+MTAB7E+O7qsMqAbMfW7DG3K1URwhZ5hN1pLlRVGbf4wDFzSfikL05M17EyorS86jShw==}
+  '@types/node@22.8.2':
+    resolution: {integrity: sha512-NzaRNFV+FZkvK/KLCsNdTvID0SThyrs5SHB6tsD/lajr22FGC73N2QeDPM2wHtVde8mgcXuSsHQkH5cX1pbPLw==}
 
   '@types/normalize-package-data@2.4.4':
     resolution: {integrity: sha512-37i+OaWTh9qeK4LSHPsyRC7NahnGotNuZvjLSgcPzblpHB3rrCJxAOgI5gCdKm7coonsaX1Of0ILiTcnZjbfxA==}
@@ -1926,8 +1926,8 @@ packages:
   ufo@1.5.4:
     resolution: {integrity: sha512-UsUk3byDzKd04EyoZ7U4DOlxQaD14JUKQl6/P7wiX4FNvUfm3XL246n9W5AmqwW5RSFJ27NAuM0iLscAOYUiGQ==}
 
-  undici-types@5.26.5:
-    resolution: {integrity: sha512-JlCMO+ehdEIKqlFxk6IfVoAUVmgz7cU7zD/h9XZ0qzeosSHmUJVOzSQvvYSYWXkFXC+IfLKSIffhv0sVZup6pA==}
+  undici-types@6.19.8:
+    resolution: {integrity: sha512-ve2KP6f/JnbPBFyobGHuerC9g1FYGn/F8n1LWTwNxCEzd6IfqTwUQcNXgEtmmQ6DlRrC1hrSrBnCZPokRrDHjw==}
 
   unist-util-is@6.0.0:
     resolution: {integrity: sha512-2qCTHimwdxLfz+YzdGfkqNlH0tLi9xjTnHddPmJwtIG9MGsdbutfTc4P+haPD7l7Cjxf/WZj+we5qfVPvvxfYw==}
@@ -2392,9 +2392,9 @@ snapshots:
 
   '@types/ms@0.7.34': {}
 
-  '@types/node@20.12.3':
+  '@types/node@22.8.2':
     dependencies:
-      undici-types: 5.26.5
+      undici-types: 6.19.8
 
   '@types/normalize-package-data@2.4.4': {}
 
@@ -4125,7 +4125,7 @@ snapshots:
 
   ufo@1.5.4: {}
 
-  undici-types@5.26.5: {}
+  undici-types@6.19.8: {}
 
   unist-util-is@6.0.0:
     dependencies:
@@ -4165,7 +4165,7 @@ snapshots:
       spdx-correct: 3.2.0
       spdx-expression-parse: 3.0.1
 
-  vite-plugin-monkey@4.0.6(vite@5.2.0(@types/node@20.12.3)):
+  vite-plugin-monkey@4.0.6(vite@5.2.0(@types/node@22.8.2)):
     dependencies:
       acorn-walk: 8.3.3
       cross-spawn: 7.0.3
@@ -4177,15 +4177,15 @@ snapshots:
       picocolors: 1.1.0
       systemjs: 6.15.1
     optionalDependencies:
-      vite: 5.2.0(@types/node@20.12.3)
+      vite: 5.2.0(@types/node@22.8.2)
 
-  vite@5.2.0(@types/node@20.12.3):
+  vite@5.2.0(@types/node@22.8.2):
     dependencies:
       esbuild: 0.20.2
       postcss: 8.4.37
       rollup: 4.13.0
     optionalDependencies:
-      '@types/node': 20.12.3
+      '@types/node': 22.8.2
       fsevents: 2.3.3
 
   vue-eslint-parser@9.4.3(eslint@9.9.1(jiti@1.21.6)):

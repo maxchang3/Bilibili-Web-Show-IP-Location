@@ -16,7 +16,7 @@
     "@maxchang/eslint-config": "^1.0.8"
   },
   "devDependencies": {
-    "@types/node": "^20.2.3",
+    "@types/node": "^22.0.0",
     "bumpp": "^9.2.0",
     "eslint-plugin-format": "^0.1.2",
     "typescript": "^5.0.4",
