@@ -50,15 +50,15 @@ router.serve('https://www.bilibili.com/v/topic/detail/', () => serveNewComments(
 /**
  * 个人空间动态页
  */
-router.serve('https://space.bilibili.com/', () => serveNewComments('.bili-dyn-list__items'), { endsWith: 'dynamic' })
+router.serve('https://space.bilibili.com/', () => hookLit(), { endsWith: 'dynamic' })
 
 /**
  * 个人空间首页
  */
 router.serve('https://space.bilibili.com/', async () => {
-    const dynamicTab = await isElementLoaded('.n-dynamic')
+    const dynamicTab = await isElementLoaded('#app > div.nav-bar.space-navbar > div > div.nav-bar__main-left > div > a:nth-child(2)')
     dynamicTab.addEventListener('click', () => {
-        serveNewComments('.bili-dyn-list__items')
+        hookLit()
     }, { once: true })
 })
 
