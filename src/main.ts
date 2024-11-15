@@ -36,7 +36,7 @@ router.serve(/** 专栏 */ 'https://www.bilibili.com/read/', async () => {
 router.serve('https://www.bilibili.com/bangumi/play/', () => {
     const isNewBangumi = !!document.querySelector('meta[name=next-head-count]')
     if (isNewBangumi) {
-        observeAndInjectComments()
+        hookLit()
     } else {
         hookBBComment()
     }
