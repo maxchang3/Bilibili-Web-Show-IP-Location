@@ -12,10 +12,8 @@
     "lint": "eslint .",
     "lint:fix": "eslint . --fix"
   },
-  "dependencies": {
-    "@maxchang/eslint-config": "^1.0.8"
-  },
   "devDependencies": {
+    "@maxchang/eslint-config": "^1.0.8",
     "@types/node": "^22.0.0",
     "bumpp": "^9.2.0",
     "eslint-plugin-format": "^0.1.2",
