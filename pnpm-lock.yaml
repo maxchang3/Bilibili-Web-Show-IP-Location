@@ -13,7 +13,7 @@ importers:
         version: 1.0.13(@typescript-eslint/utils@8.14.0(eslint@9.9.1(jiti@1.21.6))(typescript@5.7.2))(@vue/compiler-sfc@3.5.8)(eslint-plugin-format@0.1.2(eslint@9.9.1(jiti@1.21.6)))(eslint@9.9.1(jiti@1.21.6))(typescript@5.7.2)
       '@types/node':
         specifier: ^22.0.0
-        version: 22.9.0
+        version: 22.10.1
       bumpp:
         specifier: ^9.2.0
         version: 9.8.1
@@ -22,10 +22,10 @@ importers:
         version: 5.7.2
       vite:
         specifier: ^6.0.0
-        version: 6.0.1(@types/node@22.9.0)(jiti@1.21.6)(yaml@2.6.0)
+        version: 6.0.1(@types/node@22.10.1)(jiti@1.21.6)(yaml@2.6.0)
       vite-plugin-monkey:
         specifier: ^4.0.0
-        version: 4.0.6(vite@6.0.1(@types/node@22.9.0)(jiti@1.21.6)(yaml@2.6.0))
+        version: 4.0.6(vite@6.0.1(@types/node@22.10.1)(jiti@1.21.6)(yaml@2.6.0))
 
 packages:
 
@@ -462,8 +462,8 @@ packages:
   '@types/ms@0.7.34':
     resolution: {integrity: sha512-nG96G3Wp6acyAgJqGasjODb+acrI7KltPiRxzHPXnP3NgI28bpQDRv53olbqGXbfcgF5aiiHmO3xpwEpS5Ld9g==}
 
-  '@types/node@22.9.0':
-    resolution: {integrity: sha512-vuyHg81vvWA1Z1ELfvLko2c8f34gyA0zaic0+Rllc5lbCnbSyuvb2Oxpm6TAUAC/2xZN3QGqxBNggD1nNR2AfQ==}
+  '@types/node@22.10.1':
+    resolution: {integrity: sha512-qKgsUwfHZV2WCWLAnVP1JqnpE6Im6h3Y0+fYgMTasNQ7V++CBX5OT1as0g0f+OyubbFqhf6XVNIsmN4IIhEgGQ==}
 
   '@types/normalize-package-data@2.4.4':
     resolution: {integrity: sha512-37i+OaWTh9qeK4LSHPsyRC7NahnGotNuZvjLSgcPzblpHB3rrCJxAOgI5gCdKm7coonsaX1Of0ILiTcnZjbfxA==}
@@ -1959,8 +1959,8 @@ packages:
   ufo@1.5.4:
     resolution: {integrity: sha512-UsUk3byDzKd04EyoZ7U4DOlxQaD14JUKQl6/P7wiX4FNvUfm3XL246n9W5AmqwW5RSFJ27NAuM0iLscAOYUiGQ==}
 
-  undici-types@6.19.8:
-    resolution: {integrity: sha512-ve2KP6f/JnbPBFyobGHuerC9g1FYGn/F8n1LWTwNxCEzd6IfqTwUQcNXgEtmmQ6DlRrC1hrSrBnCZPokRrDHjw==}
+  undici-types@6.20.0:
+    resolution: {integrity: sha512-Ny6QZ2Nju20vw1SRHe3d9jVu6gJ+4e3+MMpqu7pqE5HT6WsTSlce++GQmK5UXS8mzV8DSYHrQH+Xrf2jVcuKNg==}
 
   unist-util-is@6.0.0:
     resolution: {integrity: sha512-2qCTHimwdxLfz+YzdGfkqNlH0tLi9xjTnHddPmJwtIG9MGsdbutfTc4P+haPD7l7Cjxf/WZj+we5qfVPvvxfYw==}
@@ -2463,9 +2463,9 @@ snapshots:
 
   '@types/ms@0.7.34': {}
 
-  '@types/node@22.9.0':
+  '@types/node@22.10.1':
     dependencies:
-      undici-types: 6.19.8
+      undici-types: 6.20.0
 
   '@types/normalize-package-data@2.4.4': {}
 
@@ -4213,7 +4213,7 @@ snapshots:
 
   ufo@1.5.4: {}
 
-  undici-types@6.19.8: {}
+  undici-types@6.20.0: {}
 
   unist-util-is@6.0.0:
     dependencies:
@@ -4253,7 +4253,7 @@ snapshots:
       spdx-correct: 3.2.0
       spdx-expression-parse: 3.0.1
 
-  vite-plugin-monkey@4.0.6(vite@6.0.1(@types/node@22.9.0)(jiti@1.21.6)(yaml@2.6.0)):
+  vite-plugin-monkey@4.0.6(vite@6.0.1(@types/node@22.10.1)(jiti@1.21.6)(yaml@2.6.0)):
     dependencies:
       acorn-walk: 8.3.3
       cross-spawn: 7.0.3
@@ -4265,15 +4265,15 @@ snapshots:
       picocolors: 1.1.0
       systemjs: 6.15.1
     optionalDependencies:
-      vite: 6.0.1(@types/node@22.9.0)(jiti@1.21.6)(yaml@2.6.0)
+      vite: 6.0.1(@types/node@22.10.1)(jiti@1.21.6)(yaml@2.6.0)
 
-  vite@6.0.1(@types/node@22.9.0)(jiti@1.21.6)(yaml@2.6.0):
+  vite@6.0.1(@types/node@22.10.1)(jiti@1.21.6)(yaml@2.6.0):
     dependencies:
       esbuild: 0.24.0
       postcss: 8.4.49
       rollup: 4.27.4
     optionalDependencies:
-      '@types/node': 22.9.0
+      '@types/node': 22.10.1
       fsevents: 2.3.3
       jiti: 1.21.6
       yaml: 2.6.0
