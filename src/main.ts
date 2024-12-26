@@ -101,4 +101,7 @@ router.serve('https://www.bilibili.com/blackroom/ban/', () => hookBBComment({ bl
  */
 router.serve('https://manga.bilibili.com/detail/', observeAndInjectComments)
 
-router.match(location.href)
+const { origin, pathname } = new URL(location.href)
+const urlWithoutQueryOrHash = `${origin}${pathname}`
+
+router.match(urlWithoutQueryOrHash)
