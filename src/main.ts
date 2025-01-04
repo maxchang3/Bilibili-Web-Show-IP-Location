@@ -50,16 +50,34 @@ router.serve('https://www.bilibili.com/v/topic/detail/', () => serveNewComments(
 /**
  * 个人空间动态页
  */
-router.serve('https://space.bilibili.com/', () => serveNewComments('.bili-dyn-list__items'), { endsWith: 'dynamic' })
+router.serve('https://space.bilibili.com/', async () => {
+    const biliMainHeader = await isElementLoaded('#biliMainHeader')
+    const isFreshSpaceDynamic = biliMainHeader?.tagName === "HEADER"
+    if (isFreshSpaceDynamic) {
+        hookLit()
+    } else {
+        serveNewComments('.bili-dyn-list__items')
+    }
+
+}, { endsWith: 'dynamic' })
 
 /**
  * 个人空间首页
  */
 router.serve('https://space.bilibili.com/', async () => {
-    const dynamicTab = await isElementLoaded('.n-dynamic')
-    dynamicTab.addEventListener('click', () => {
-        serveNewComments('.bili-dyn-list__items')
-    }, { once: true })
+    const biliMainHeader = await isElementLoaded('#biliMainHeader')
+    const isFreshSpaceDynamic = biliMainHeader?.tagName === "HEADER"
+    if (isFreshSpaceDynamic) {
+        const newDyanmicTab = await isElementLoaded(".nav-tab__item:nth-child(2)")
+        newDyanmicTab.addEventListener('click', () => {
+            hookLit()
+        }, { once: true })
+    } else {
+        const oldDynamicTab = await isElementLoaded('.n-dynamic')
+        oldDynamicTab.addEventListener('click', () => {
+            serveNewComments('.bili-dyn-list__items')
+        }, { once: true })
+    }
 })
 
 /**
