@@ -52,13 +52,12 @@ router.serve('https://www.bilibili.com/v/topic/detail/', () => serveNewComments(
  */
 router.serve('https://space.bilibili.com/', async () => {
     const biliMainHeader = await isElementLoaded('#biliMainHeader')
-    const isFreshSpaceDynamic = biliMainHeader?.tagName === "HEADER"
+    const isFreshSpaceDynamic = biliMainHeader?.tagName === 'HEADER'
     if (isFreshSpaceDynamic) {
         hookLit()
     } else {
         serveNewComments('.bili-dyn-list__items')
     }
-
 }, { endsWith: 'dynamic' })
 
 /**
@@ -66,9 +65,9 @@ router.serve('https://space.bilibili.com/', async () => {
  */
 router.serve('https://space.bilibili.com/', async () => {
     const biliMainHeader = await isElementLoaded('#biliMainHeader')
-    const isFreshSpaceDynamic = biliMainHeader?.tagName === "HEADER"
+    const isFreshSpaceDynamic = biliMainHeader?.tagName === 'HEADER'
     if (isFreshSpaceDynamic) {
-        const newDyanmicTab = await isElementLoaded(".nav-tab__item:nth-child(2)")
+        const newDyanmicTab = await isElementLoaded('.nav-tab__item:nth-child(2)')
         newDyanmicTab.addEventListener('click', () => {
             hookLit()
         }, { once: true })
