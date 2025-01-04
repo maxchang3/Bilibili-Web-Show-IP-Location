@@ -1,5 +1,11 @@
 # Changelog
 
+## v1.6.4
+
+### 修复
+
+* 匹配 URL 时去除查询参数和哈希值。[#101](https://github.com/maxchang3/Bilibili-Web-Show-IP-Location/issues/101)
+
 ## v.1.6.3
 
 ### 适配
