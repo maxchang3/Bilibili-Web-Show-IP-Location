@@ -52,8 +52,8 @@ router.serve('https://www.bilibili.com/v/topic/detail/', () => serveNewComments(
  */
 router.serve('https://space.bilibili.com/', async () => {
     const biliMainHeader = await isElementLoaded('#biliMainHeader')
-    const isFreshSpaceDynamic = biliMainHeader?.tagName === 'HEADER'
-    if (isFreshSpaceDynamic) {
+    const isFreshSpace = biliMainHeader?.tagName === 'HEADER'
+    if (isFreshSpace) {
         hookLit()
     } else {
         serveNewComments('.bili-dyn-list__items')
@@ -65,15 +65,15 @@ router.serve('https://space.bilibili.com/', async () => {
  */
 router.serve('https://space.bilibili.com/', async () => {
     const biliMainHeader = await isElementLoaded('#biliMainHeader')
-    const isFreshSpaceDynamic = biliMainHeader?.tagName === 'HEADER'
-    if (isFreshSpaceDynamic) {
-        const newDyanmicTab = await isElementLoaded('.nav-tab__item:nth-child(2)')
-        newDyanmicTab.addEventListener('click', () => {
+    const isFreshSpace = biliMainHeader?.tagName === 'HEADER'
+    if (isFreshSpace) {
+        const dyanmicTab = await isElementLoaded('.nav-tab__item:nth-child(2)')
+        dyanmicTab.addEventListener('click', () => {
             hookLit()
         }, { once: true })
     } else {
-        const oldDynamicTab = await isElementLoaded('.n-dynamic')
-        oldDynamicTab.addEventListener('click', () => {
+        const dynamicTab = await isElementLoaded('.n-dynamic')
+        dynamicTab.addEventListener('click', () => {
             serveNewComments('.bili-dyn-list__items')
         }, { once: true })
     }
