@@ -4,5 +4,5 @@
     "config:base",
     ":disableDependencyDashboard"
   ],
-  "schedule": [ "on monday" ]
+  "schedule": ["on monday"]
 }
