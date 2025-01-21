@@ -27,6 +27,7 @@ export default defineConfig({
                     'https://www.bilibili.com/v/topic/detail/*',
                     'https://www.bilibili.com/cheese/play/*',
                     'https://www.bilibili.com/festival/*',
+                    'https://www.bilibili.com/blackboard/*',
                     'https://www.bilibili.com/blackroom/ban/*',
                     'https://www.bilibili.com/read/*',
                     'https://manga.bilibili.com/detail/*',

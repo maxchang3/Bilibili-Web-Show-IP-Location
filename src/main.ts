@@ -16,6 +16,8 @@ router.serve([
     /** 课程页 */ 'https://www.bilibili.com/cheese/play/',
 ], hookLit)
 
+router.serve(/** 活动页 */ 'https://www.bilibili.com/blackboard/', observeAndInjectComments)
+
 router.serve(/** 拜年祭 */ 'https://www.bilibili.com/festival/', hookBBComment)
 
 router.serve(/** 专栏 */ 'https://www.bilibili.com/read/', async () => {
