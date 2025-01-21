@@ -13,7 +13,7 @@ importers:
         version: 1.0.14(@typescript-eslint/utils@8.17.0(eslint@9.9.1(jiti@2.4.2))(typescript@5.7.2))(@vue/compiler-sfc@3.5.8)(eslint-plugin-format@0.1.2(eslint@9.9.1(jiti@2.4.2)))(eslint@9.9.1(jiti@2.4.2))(typescript@5.7.2)
       '@types/node':
         specifier: ^22.0.0
-        version: 22.10.2
+        version: 22.10.7
       bumpp:
         specifier: ^9.2.0
         version: 9.9.2
@@ -22,10 +22,10 @@ importers:
         version: 5.7.2
       vite:
         specifier: ^6.0.0
-        version: 6.0.11(@types/node@22.10.2)(jiti@2.4.2)(yaml@2.6.1)
+        version: 6.0.11(@types/node@22.10.7)(jiti@2.4.2)(yaml@2.6.1)
       vite-plugin-monkey:
         specifier: ^5.0.0
-        version: 5.0.4(vite@6.0.11(@types/node@22.10.2)(jiti@2.4.2)(yaml@2.6.1))
+        version: 5.0.4(vite@6.0.11(@types/node@22.10.7)(jiti@2.4.2)(yaml@2.6.1))
 
 packages:
 
@@ -467,8 +467,8 @@ packages:
   '@types/ms@0.7.34':
     resolution: {integrity: sha512-nG96G3Wp6acyAgJqGasjODb+acrI7KltPiRxzHPXnP3NgI28bpQDRv53olbqGXbfcgF5aiiHmO3xpwEpS5Ld9g==}
 
-  '@types/node@22.10.2':
-    resolution: {integrity: sha512-Xxr6BBRCAOQixvonOye19wnzyDiUtTeqldOOmj3CkeblonbccA12PFwlufvRdrpjXxqnmUaeiU5EOA+7s5diUQ==}
+  '@types/node@22.10.7':
+    resolution: {integrity: sha512-V09KvXxFiutGp6B7XkpaDXlNadZxrzajcY50EuoLIpQ6WWYCSvf19lVIazzfIzQvhUN2HjX12spLojTnhuKlGg==}
 
   '@types/normalize-package-data@2.4.4':
     resolution: {integrity: sha512-37i+OaWTh9qeK4LSHPsyRC7NahnGotNuZvjLSgcPzblpHB3rrCJxAOgI5gCdKm7coonsaX1Of0ILiTcnZjbfxA==}
@@ -2358,7 +2358,7 @@ snapshots:
 
   '@types/ms@0.7.34': {}
 
-  '@types/node@22.10.2':
+  '@types/node@22.10.7':
     dependencies:
       undici-types: 6.20.0
 
@@ -4038,7 +4038,7 @@ snapshots:
       spdx-correct: 3.2.0
       spdx-expression-parse: 3.0.1
 
-  vite-plugin-monkey@5.0.4(vite@6.0.11(@types/node@22.10.2)(jiti@2.4.2)(yaml@2.6.1)):
+  vite-plugin-monkey@5.0.4(vite@6.0.11(@types/node@22.10.7)(jiti@2.4.2)(yaml@2.6.1)):
     dependencies:
       acorn-walk: 8.3.4
       cross-spawn: 7.0.6
@@ -4050,15 +4050,15 @@ snapshots:
       picocolors: 1.1.1
       systemjs: 6.15.1
     optionalDependencies:
-      vite: 6.0.11(@types/node@22.10.2)(jiti@2.4.2)(yaml@2.6.1)
+      vite: 6.0.11(@types/node@22.10.7)(jiti@2.4.2)(yaml@2.6.1)
 
-  vite@6.0.11(@types/node@22.10.2)(jiti@2.4.2)(yaml@2.6.1):
+  vite@6.0.11(@types/node@22.10.7)(jiti@2.4.2)(yaml@2.6.1):
     dependencies:
       esbuild: 0.24.2
       postcss: 8.5.1
       rollup: 4.31.0
     optionalDependencies:
-      '@types/node': 22.10.2
+      '@types/node': 22.10.7
       fsevents: 2.3.3
       jiti: 2.4.2
       yaml: 2.6.1
