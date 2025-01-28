@@ -4,5 +4,11 @@
     "config:base",
     ":disableDependencyDashboard"
   ],
-  "schedule": ["on monday"]
+  "schedule": ["on monday"],
+  "packageRules": [
+    {
+      "matchUpdateTypes": [ "minor", "patch", "pin", "digest" ],
+      "automerge": true
+    }
+  ]
 }
