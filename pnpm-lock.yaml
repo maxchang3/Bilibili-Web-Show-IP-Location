@@ -25,7 +25,7 @@ importers:
         version: 6.0.11(@types/node@22.10.7)(jiti@2.4.2)(yaml@2.7.0)
       vite-plugin-monkey:
         specifier: ^5.0.0
-        version: 5.0.5(vite@6.0.11(@types/node@22.10.7)(jiti@2.4.2)(yaml@2.7.0))
+        version: 5.0.6(vite@6.0.11(@types/node@22.10.7)(jiti@2.4.2)(yaml@2.7.0))
 
 packages:
 
@@ -93,13 +93,13 @@ packages:
     resolution: {integrity: sha512-Ed61U6XJc3CVRfkERJWDz4dJwKe7iLmmJsbOGu9wSloNSFttHV0I8g6UAgb7qnK5ly5bGLPd4oXZlxCdANBOWQ==}
     engines: {node: '>=6.9.0'}
 
-  '@babel/parser@7.26.5':
-    resolution: {integrity: sha512-SRJ4jYmXRqV1/Xc+TIVG84WjHBXKlxO9sHQnA2Pf12QQEAp1LOh6kDzNHXcUnbH1QI0FDoPPVOt+vyUDucxpaw==}
+  '@babel/parser@7.26.7':
+    resolution: {integrity: sha512-kEvgGGgEjRUutvdVvZhbn/BxVt+5VSpwXz1j3WYXQbXDo8KzFOPNG2GQbdAiNq8g6wn1yKk7C/qrke03a84V+w==}
     engines: {node: '>=6.0.0'}
     hasBin: true
 
-  '@babel/types@7.26.5':
-    resolution: {integrity: sha512-L6mZmwFDK6Cjh1nRCLXpa6no13ZIioJDz7mdkzHv399pThrTa/k0nUlNaenOeh2kWu/iaOQYElEpKPUswUa9Vg==}
+  '@babel/types@7.26.7':
+    resolution: {integrity: sha512-t8kDRGrKXyp6+tjUh7hw2RLyclsW4TRoRvRHtSyAX9Bb5ldlFh+90YAYY6awRXrlB4G5G2izNeGySpATlFzmOg==}
     engines: {node: '>=6.9.0'}
 
   '@clack/core@0.4.1':
@@ -1884,8 +1884,8 @@ packages:
   validate-npm-package-license@3.0.4:
     resolution: {integrity: sha512-DpKm2Ui/xN7/HQKCtpZxoRWBhZ9Z0kqtygG8XCgNQ8ZlDnxuQmWhj566j8fN4Cu3/JmbhsDo7fcAJq4s9h27Ew==}
 
-  vite-plugin-monkey@5.0.5:
-    resolution: {integrity: sha512-zhqChSckAHniYY9f7qpS0mETW7PAedIVja44CA0eahJk31rHL9tCjXCBqOd50mMJKHEtbOu0MHjfeYmaKz1hZg==}
+  vite-plugin-monkey@5.0.6:
+    resolution: {integrity: sha512-qFsdUHs+Hcf+o/tMms5YPDa0Fzb72a8ldt371kDjO2sneygXAnO1c3lnxbDPM7Kz1lPc5pYk2eZtRgQroVpXYg==}
     peerDependencies:
       vite: ^5.4.11 || ^6.0.0
     peerDependenciesMeta:
@@ -2053,11 +2053,11 @@ snapshots:
 
   '@babel/helper-validator-identifier@7.25.9': {}
 
-  '@babel/parser@7.26.5':
+  '@babel/parser@7.26.7':
     dependencies:
-      '@babel/types': 7.26.5
+      '@babel/types': 7.26.7
 
-  '@babel/types@7.26.5':
+  '@babel/types@7.26.7':
     dependencies:
       '@babel/helper-string-parser': 7.25.9
       '@babel/helper-validator-identifier': 7.25.9
@@ -2462,7 +2462,7 @@ snapshots:
 
   '@vue/compiler-core@3.5.8':
     dependencies:
-      '@babel/parser': 7.26.5
+      '@babel/parser': 7.26.7
       '@vue/shared': 3.5.8
       entities: 4.5.0
       estree-walker: 2.0.2
@@ -2475,7 +2475,7 @@ snapshots:
 
   '@vue/compiler-sfc@3.5.8':
     dependencies:
-      '@babel/parser': 7.26.5
+      '@babel/parser': 7.26.7
       '@vue/compiler-core': 3.5.8
       '@vue/compiler-dom': 3.5.8
       '@vue/compiler-ssr': 3.5.8
@@ -4044,7 +4044,7 @@ snapshots:
       spdx-correct: 3.2.0
       spdx-expression-parse: 3.0.1
 
-  vite-plugin-monkey@5.0.5(vite@6.0.11(@types/node@22.10.7)(jiti@2.4.2)(yaml@2.7.0)):
+  vite-plugin-monkey@5.0.6(vite@6.0.11(@types/node@22.10.7)(jiti@2.4.2)(yaml@2.7.0)):
     dependencies:
       acorn-walk: 8.3.4
       cross-spawn: 7.0.6
