@@ -25,7 +25,7 @@ importers:
         version: 6.1.1(@types/node@22.13.5)(jiti@2.4.2)(yaml@2.7.0)
       vite-plugin-monkey:
         specifier: ^5.0.0
-        version: 5.0.7(vite@6.1.1(@types/node@22.13.5)(jiti@2.4.2)(yaml@2.7.0))
+        version: 5.0.8(vite@6.1.1(@types/node@22.13.5)(jiti@2.4.2)(yaml@2.7.0))
 
 packages:
 
@@ -1452,8 +1452,8 @@ packages:
   mlly@1.7.4:
     resolution: {integrity: sha512-qmdSIPC4bDJXgZTCR7XosJiNKySV7O215tsPtDN9iEO/7q/76b/ijtgRu/+epFXSJhijtTCCGp3DWS549P3xKw==}
 
-  mrmime@2.0.0:
-    resolution: {integrity: sha512-eu38+hdgojoyq63s+yTpN4XMBdt5l8HhMhc4VKLO9KM5caLIBvUm4thi7fFaxyTmCKeNnXZ5pAlBwCUnhA09uw==}
+  mrmime@2.0.1:
+    resolution: {integrity: sha512-Y3wQdFg2Va6etvQ5I82yUhGdsKrcYox6p7FfL1LbK2J4V01F9TGlepTIhnK24t7koZibmg82KGglhA1XK5IsLQ==}
     engines: {node: '>=10'}
 
   ms@2.1.3:
@@ -1841,8 +1841,8 @@ packages:
   validate-npm-package-license@3.0.4:
     resolution: {integrity: sha512-DpKm2Ui/xN7/HQKCtpZxoRWBhZ9Z0kqtygG8XCgNQ8ZlDnxuQmWhj566j8fN4Cu3/JmbhsDo7fcAJq4s9h27Ew==}
 
-  vite-plugin-monkey@5.0.7:
-    resolution: {integrity: sha512-K82MWVF7QZYXFM/LW6dNmu7EIjsuxHogb1l/NhRhwPvhzzjo0K9xBNwMMYPtxIoYx87rNIdL9Qri4zp1i1ZVWQ==}
+  vite-plugin-monkey@5.0.8:
+    resolution: {integrity: sha512-rkXl7A4y7m1Py/p1cqfCdvvy1Qy5ZwzGMsITH5L1XWzjtu9DXqrVKzo8kGbZCohtha2K19ToAgD1n2e6SPrtig==}
     peerDependencies:
       vite: ^5.4.11 || ^6.0.0
     peerDependenciesMeta:
@@ -3580,7 +3580,7 @@ snapshots:
       pkg-types: 1.3.1
       ufo: 1.5.4
 
-  mrmime@2.0.0: {}
+  mrmime@2.0.1: {}
 
   ms@2.1.3: {}
 
@@ -3966,14 +3966,14 @@ snapshots:
       spdx-correct: 3.2.0
       spdx-expression-parse: 3.0.1
 
-  vite-plugin-monkey@5.0.7(vite@6.1.1(@types/node@22.13.5)(jiti@2.4.2)(yaml@2.7.0)):
+  vite-plugin-monkey@5.0.8(vite@6.1.1(@types/node@22.13.5)(jiti@2.4.2)(yaml@2.7.0)):
     dependencies:
       acorn-walk: 8.3.4
       cross-spawn: 7.0.6
       htmlparser2: 9.1.0
       import-meta-resolve: 4.1.0
       magic-string: 0.30.17
-      mrmime: 2.0.0
+      mrmime: 2.0.1
       open: 10.1.0
       picocolors: 1.1.1
       systemjs: 6.15.1
