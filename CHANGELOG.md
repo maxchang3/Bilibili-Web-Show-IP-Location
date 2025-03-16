@@ -1,5 +1,11 @@
 # Changelog
 
+## v1.6.7
+
+### 修复
+
+* 修复使用 Adblocker 作为脚本管理器在 Safari 下当网络缓慢时导致 Hook Lit 逻辑失效的问题。
+
 ## v1.6.6
 
 ### 适配
