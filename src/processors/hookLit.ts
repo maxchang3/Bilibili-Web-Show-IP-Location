@@ -7,31 +7,48 @@ interface ActionButtonsRender extends HTMLElement {
     update(): void
 }
 
-type Constructor<T> = new (...args: any[]) => T
+interface Constructor<T> {
+    new (...args: any[]): T
+    readonly prototype: T
+}
 
 const createPatch = (ActionButtonsRender: Constructor<ActionButtonsRender>) => {
-    class PatchActionButtonsRender extends ActionButtonsRender {
-        update() {
-            super.update()
-            const pubDateEl = this.shadowRoot!.querySelector('#pubdate') as HTMLDivElement | null
-            if (!pubDateEl) return
-            let locationEl = this.shadowRoot!.querySelector('#location') as HTMLDivElement | null
-            const locationString = getLocationString(this.data)
-            if (!locationString) {
-                if (locationEl) locationEl.remove()
-                return
-            }
-            if (locationEl) {
-                locationEl.textContent = locationString
-                return
-            }
-            locationEl = document.createElement('div')
-            locationEl.id = 'location'
-            locationEl.textContent = locationString
-            pubDateEl.insertAdjacentElement('afterend', locationEl)
+    const applyHandler = <
+        T extends typeof ActionButtonsRender.prototype['update'],
+    >(target: T,
+        thisArg: ActionButtonsRender,
+        args: Parameters<T>,
+    ) => {
+        const result = Reflect.apply(target, thisArg, args)
+
+        const pubDateEl = thisArg.shadowRoot!.querySelector<HTMLDivElement>('#pubdate')
+        if (!pubDateEl) return result
+
+        let locationEl = thisArg.shadowRoot!.querySelector<HTMLDivElement>('#location')
+        const locationString = getLocationString(thisArg.data)
+
+        if (!locationString) {
+            if (locationEl) locationEl.remove()
+            return result
         }
+
+        if (locationEl) {
+            locationEl.textContent = locationString
+            return result
+        }
+
+        locationEl = document.createElement('div')
+        locationEl.id = 'location'
+        locationEl.textContent = locationString
+        pubDateEl.insertAdjacentElement('afterend', locationEl)
+
+        return result
     }
-    return PatchActionButtonsRender
+    ActionButtonsRender.prototype.update = new Proxy(
+        ActionButtonsRender.prototype.update,
+        { apply: applyHandler },
+    )
+    return ActionButtonsRender
 }
 
 export const hookLit = () => {
