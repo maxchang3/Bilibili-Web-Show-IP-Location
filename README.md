@@ -1,9 +1,7 @@
 > [!NOTE]
 > 经过考虑，我们实现了一个单独的脚本，仅用于在个人空间显示 IP 属地。
 > 欢迎体验！
-> <kbd>
-> <a href="https://github.com/maxchang3/userscripts/blob/main/BiliSpaceIPLocator/README.md">BiliSpaceIPLocator</a>
-> </kbd>
+> <kbd><a href="https://github.com/maxchang3/userscripts/blob/main/BiliSpaceIPLocator/README.md">BiliSpaceIPLocator</a></kbd>
 
 > [!IMPORTANT]
 > 由于本脚本的逻辑是根据不同的 URL 路由来对应相应的场景，而 B 站前端的评论区代码实际上混合了三种不同的实现方式，因此每次 B 站前端更新都有可能导致原有逻辑失效。如果遇到相关场景无法正常显示的情况，欢迎及时反馈。
@@ -17,7 +15,9 @@
 
 # Bilibili-Web-Show-IP-Location
 
-![Greasy Fork 总下载量](https://img.shields.io/greasyfork/dt/466815?style=flat-square&color=444) [![使用 Greasy Fork 安装](https://img.shields.io/badge/Greasy_Fork-7D160D)](https://greasyfork.org/scripts/466815) [![使用 Github Release 安装](https://img.shields.io/badge/Github_Release-3D7D3F)](https://github.com/MaxChang3/Bilibili-Web-Show-IP-Location/releases/latest/download/bilibili-web-show-ip-location.user.js)
+![Greasy Fork 总下载量](https://img.shields.io/greasyfork/dt/466815?style=flat-square&color=444)
+![](https://img.shields.io/badge/安装方式:-777)
+[![使用 Greasy Fork 安装](https://img.shields.io/badge/Greasy_Fork-7D160D)](https://greasyfork.org/scripts/466815) [![使用 Github Release 安装](https://img.shields.io/badge/Github_Release-3D7D3F)](https://github.com/MaxChang3/Bilibili-Web-Show-IP-Location/releases/latest/download/bilibili-web-show-ip-location.user.js)
 
 > 我不喜欢 IP 属地，但是你手机都显示了，为什么电脑不显示呢？
 
