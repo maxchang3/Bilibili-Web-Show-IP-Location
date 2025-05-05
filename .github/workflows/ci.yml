@@ -7,12 +7,15 @@ on:
     paths:
       - "**.ts"
       - ".github/workflows/**"
+      - ".vscode/**"
   pull_request:
     branches:
       - main
     paths:
       - "**.ts"
       - ".github/workflows/**"
+  workflow_dispatch:
+
 
 jobs:
   CI:
