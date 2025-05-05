@@ -1,4 +1,7 @@
-export const isElementLoaded = async (selector: string, root: HTMLElement | Document | Element = document) => {
+export const isElementLoaded = async (
+    selector: string,
+    root: HTMLElement | Document | Element = document
+) => {
     const getElement = () => root.querySelector(selector)
     return new Promise<Element>((resolve) => {
         const element = getElement()

@@ -1,5 +1,5 @@
-import type { Reply } from '@/types/reply'
 import { unsafeWindow } from '$'
+import type { Reply } from '@/types/reply'
 import { getLocationString } from '@/utils'
 
 interface ActionButtonsRender extends HTMLElement {
@@ -14,17 +14,20 @@ interface Constructor<T> {
 
 const createPatch = (ActionButtonsRender: Constructor<ActionButtonsRender>) => {
     const applyHandler = <
-        T extends typeof ActionButtonsRender.prototype['update'],
-    >(target: T,
+        T extends (typeof ActionButtonsRender.prototype)['update'],
+    >(
+        target: T,
         thisArg: ActionButtonsRender,
-        args: Parameters<T>,
+        args: Parameters<T>
     ) => {
         const result = Reflect.apply(target, thisArg, args)
 
-        const pubDateEl = thisArg.shadowRoot!.querySelector<HTMLDivElement>('#pubdate')
+        const pubDateEl =
+            thisArg.shadowRoot!.querySelector<HTMLDivElement>('#pubdate')
         if (!pubDateEl) return result
 
-        let locationEl = thisArg.shadowRoot!.querySelector<HTMLDivElement>('#location')
+        let locationEl =
+            thisArg.shadowRoot!.querySelector<HTMLDivElement>('#location')
         const locationString = getLocationString(thisArg.data)
 
         if (!locationString) {
@@ -46,7 +49,7 @@ const createPatch = (ActionButtonsRender: Constructor<ActionButtonsRender>) => {
     }
     ActionButtonsRender.prototype.update = new Proxy(
         ActionButtonsRender.prototype.update,
-        { apply: applyHandler },
+        { apply: applyHandler }
     )
     return ActionButtonsRender
 }
@@ -56,15 +59,24 @@ export const hookLit = () => {
     const applyHandler = <T extends typeof originalDefine>(
         target: T,
         thisArg: ActionButtonsRender,
-        args: Parameters<T>,
+        args: Parameters<T>
     ) => {
-        const [name, constructor, ...rest] = args
+        const [name, classConstructor, ...rest] = args
         if (
-            typeof constructor !== 'function'
-            || name !== 'bili-comment-action-buttons-renderer'
-        ) return Reflect.apply(target, thisArg, args)
-        const PatchActionButtonsRender = createPatch(constructor as Constructor<ActionButtonsRender>)
-        return Reflect.apply(target, thisArg, [name, PatchActionButtonsRender, ...rest])
+            typeof classConstructor !== 'function' ||
+            name !== 'bili-comment-action-buttons-renderer'
+        )
+            return Reflect.apply(target, thisArg, args)
+        const PatchActionButtonsRender = createPatch(
+            classConstructor as Constructor<ActionButtonsRender>
+        )
+        return Reflect.apply(target, thisArg, [
+            name,
+            PatchActionButtonsRender,
+            ...rest,
+        ])
     }
-    unsafeWindow.customElements.define = new Proxy(originalDefine, { apply: applyHandler })
+    unsafeWindow.customElements.define = new Proxy(originalDefine, {
+        apply: applyHandler,
+    })
 }

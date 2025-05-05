@@ -82,8 +82,7 @@ interface Content {
     max_line: number
 }
 
-interface JumpURL {
-}
+type JumpURL = { [k: string]: never }
 
 interface Folder {
     has_folded: boolean
