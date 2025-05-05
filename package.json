@@ -9,11 +9,12 @@
     "preview": "vite preview",
     "release": "bumpp",
     "typecheck": "tsc --noEmit",
-    "lint": "eslint .",
-    "lint:fix": "eslint . --fix"
+    "lint": "biome check",
+    "lint:fix": "biome check --write ."
   },
   "devDependencies": {
-    "@maxchang/eslint-config": "^1.0.8",
+    "@biomejs/biome": "^1.9.4",
+    "@maxchang/biome-config": "^0.0.4",
     "@types/node": "^22.0.0",
     "bumpp": "^10.0.0",
     "typescript": "^5.0.4",
