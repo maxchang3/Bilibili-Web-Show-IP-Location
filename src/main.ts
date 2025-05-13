@@ -15,6 +15,7 @@ router.serve(
         /** 新列表 */ 'https://www.bilibili.com/list/',
         /** 新版单独动态页 */ 'https://www.bilibili.com/opus/',
         /** 课程页 */ 'https://www.bilibili.com/cheese/play/',
+        /** 话题页 */ 'https://www.bilibili.com/v/topic/detail',
     ],
     hookLit
 )
