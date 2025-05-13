@@ -1,10 +1,6 @@
 {
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
-  "extends": [
-    "config:base",
-    ":disableDependencyDashboard",
-    "group:allNonMajor"
-  ],
+  "extends": ["config:base", ":disableDependencyDashboard", "group:allNonMajor"],
   "schedule": ["on monday"],
   "packageRules": [
     {

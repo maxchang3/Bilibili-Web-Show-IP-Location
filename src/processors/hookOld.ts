@@ -1,9 +1,5 @@
 import { unsafeWindow } from '$'
-import type {
-    CreateListCon,
-    CreateSubReplyItem,
-    bbComment,
-} from '@/types/reply'
+import type { CreateListCon, CreateSubReplyItem, bbComment } from '@/types/reply'
 import { getLocationString } from '@/utils/location'
 
 type HooksFunc = CreateListCon | CreateSubReplyItem
@@ -12,28 +8,15 @@ interface InjectorOption {
     blackroom: boolean
 }
 
-const injectBBComment = async (
-    bbComment: bbComment,
-    { blackroom }: InjectorOption = { blackroom: false }
-) => {
-    const {
-        _createListCon: createListCon,
-        _createSubReplyItem: createSubReplyItem,
-    } = bbComment.prototype
-    const applyHandler = <T extends HooksFunc>(
-        target: T,
-        thisArg: bbComment,
-        args: Parameters<T>
-    ) => {
+const injectBBComment = async (bbComment: bbComment, { blackroom }: InjectorOption = { blackroom: false }) => {
+    const { _createListCon: createListCon, _createSubReplyItem: createSubReplyItem } = bbComment.prototype
+    const applyHandler = <T extends HooksFunc>(target: T, thisArg: bbComment, args: Parameters<T>) => {
         const [item] = args
         const result: string = Reflect.apply(target, thisArg, args)
         const replyTimeRegex = /<span class="reply-time">(.*?)<\/span>/
         if (blackroom) {
             const blackroomRegex = /<span class="time">(.*?)<\/span>/
-            return result.replace(
-                blackroomRegex,
-                `<span class="time">$1&nbsp;&nbsp;${getLocationString(item)}</span>`
-            )
+            return result.replace(blackroomRegex, `<span class="time">$1&nbsp;&nbsp;${getLocationString(item)}</span>`)
         }
         return result.replace(
             replyTimeRegex,
@@ -48,9 +31,7 @@ const injectBBComment = async (
     })
 }
 
-export const hookBBComment = async (
-    { blackroom }: InjectorOption = { blackroom: false }
-) => {
+export const hookBBComment = async ({ blackroom }: InjectorOption = { blackroom: false }) => {
     if (unsafeWindow.bbComment) {
         injectBBComment(unsafeWindow.bbComment, { blackroom })
         return

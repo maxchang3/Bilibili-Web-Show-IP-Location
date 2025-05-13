@@ -1,9 +1,4 @@
-import {
-    hookBBComment,
-    hookLit,
-    observeAndInjectComments,
-    serveNewComments,
-} from '@/processors'
+import { hookBBComment, hookLit, observeAndInjectComments, serveNewComments } from '@/processors'
 import type { ArticleDetail } from '@/types/cv'
 import { Router, isConditionTrue, isElementLoaded } from '@/utils/'
 
@@ -20,24 +15,17 @@ router.serve(
     hookLit
 )
 
-router.serve(
-    /** 活动页 */ 'https://www.bilibili.com/blackboard/',
-    observeAndInjectComments
-)
+router.serve(/** 活动页 */ 'https://www.bilibili.com/blackboard/', observeAndInjectComments)
 
 router.serve(/** 拜年祭 */ 'https://www.bilibili.com/festival/', hookBBComment)
 
 router.serve(/** 专栏 */ 'https://www.bilibili.com/read/', async () => {
     observeAndInjectComments()
-    const articleDetail = (await isElementLoaded(
-        '.article-detail'
-    )) as ArticleDetail
+    const articleDetail = (await isElementLoaded('.article-detail')) as ArticleDetail
     await isConditionTrue(() => {
         // 等待 readViewInfo 加载完毕，后期可能改为 hook 方式
         const readInfo = document.querySelector('.article-read-info')
-        return !!(
-            readInfo && readInfo.lastElementChild?.textContent !== '--评论'
-        )
+        return !!(readInfo && readInfo.lastElementChild?.textContent !== '--评论')
     })
     const publishText = articleDetail.querySelector('.publish-text')
     if (!publishText || !articleDetail.__vue__?.readViewInfo?.location) return
@@ -59,9 +47,7 @@ router.serve('https://www.bilibili.com/bangumi/play/', () => {
 /**
  * 话题页
  */
-router.serve('https://www.bilibili.com/v/topic/detail/', () =>
-    serveNewComments('.list-view')
-)
+router.serve('https://www.bilibili.com/v/topic/detail/', () => serveNewComments('.list-view'))
 
 /**
  * 个人空间动态页
@@ -115,15 +101,8 @@ router.serve(
     async () => {
         const dynHome = await isElementLoaded('.bili-dyn-home--member')
         const isNewDyn = (() => {
-            const dynBtnText = (
-                dynHome.querySelector('.bili-dyn-sidebar__btn') as
-                    | HTMLElement
-                    | undefined
-            )?.textContent
-            return dynBtnText
-                ? dynBtnText.includes('新版反馈') ||
-                      dynBtnText.includes('回到旧版')
-                : false
+            const dynBtnText = (dynHome.querySelector('.bili-dyn-sidebar__btn') as HTMLElement | undefined)?.textContent
+            return dynBtnText ? dynBtnText.includes('新版反馈') || dynBtnText.includes('回到旧版') : false
         })()
         if (isNewDyn) {
             hookLit()
@@ -150,9 +129,7 @@ router.serve('https://t.bilibili.com/', async () => {
 /**
  * 小黑屋
  */
-router.serve('https://www.bilibili.com/blackroom/ban/', () =>
-    hookBBComment({ blackroom: true })
-)
+router.serve('https://www.bilibili.com/blackroom/ban/', () => hookBBComment({ blackroom: true }))
 
 /**
  * 漫画详情页

@@ -40,8 +40,7 @@ export default defineConfig({
                 license: 'MIT',
                 description:
                     '我不喜欢 IP 属地，但是你手机都显示了，为什么电脑不显示呢？显示网页版 B 站 IP 属地，支持大部分场景的评论区',
-                require:
-                    'https://update.greasyfork.org/scripts/449444/1081400/Hook%20Vue3%20app.js',
+                require: 'https://update.greasyfork.org/scripts/449444/1081400/Hook%20Vue3%20app.js',
             },
         }),
     ],
