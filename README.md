@@ -3,9 +3,6 @@
 > 欢迎体验！
 > <kbd><a href="https://github.com/maxchang3/userscripts/blob/main/BiliSpaceIPLocator/README.md">BiliSpaceIPLocator</a></kbd>
 
-> [!IMPORTANT]
-> 由于本脚本的逻辑是根据不同的 URL 路由来对应相应的场景，而 B 站前端的评论区代码实际上混合了三种不同的实现方式，因此每次 B 站前端更新都有可能导致原有逻辑失效。如果遇到相关场景无法正常显示的情况，欢迎及时反馈。
-
 <p align="center">
     <img src="./assets/banner.svg" width = "50%">
     <img src="./assets/preview.png" width = "50%">
