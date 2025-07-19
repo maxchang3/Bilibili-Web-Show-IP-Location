@@ -1,25 +1,17 @@
-> [!NOTE]
-> 经过考虑，我们实现了一个单独的脚本，仅用于在个人空间显示 IP 属地。
-> 欢迎体验！
-> <kbd><a href="https://github.com/maxchang3/userscripts/blob/main/BiliSpaceIPLocator/README.md">BiliSpaceIPLocator</a></kbd>
-
-
 <p align="center">
-    <img src="https://github.com/user-attachments/assets/095348fe-4179-4470-999e-4eadc5ef5ae7" width = "50%">
-    <img src="./assets/preview.png" width = "50%">
+    <img src="https://github.com/user-attachments/assets/095348fe-4179-4470-999e-4eadc5ef5ae7" width = "50%"><br/>
+    <i><small>我不喜欢 IP 属地，但是你手机都显示了，为什么电脑不显示呢？</small></i>
 </p>
 
-# 哔哩哔哩网页版显示 IP 属地
-
-# Bilibili-Web-Show-IP-Location
+# BiliReveal
 
 ![Greasy Fork 总下载量](https://img.shields.io/greasyfork/dt/466815?style=flat-square&color=444)
 ![](https://img.shields.io/badge/安装方式:-777)
 [![使用 Greasy Fork 安装](https://img.shields.io/badge/Greasy_Fork-7D160D)](https://greasyfork.org/scripts/466815) [![使用 Github Release 安装](https://img.shields.io/badge/Github_Release-3D7D3F)](https://github.com/MaxChang3/Bilibili-Web-Show-IP-Location/releases/latest/download/bilibili-web-show-ip-location.user.js)
 
-> 我不喜欢 IP 属地，但是你手机都显示了，为什么电脑不显示呢？
+<img src="./assets/preview.png" width = "50%" align="right">
 
-目前支持的场景有（未作特殊说明均支持新旧版）：
+在哔哩哔哩网页版大部分场景中显示 IP 属地，目前支持的场景有：
 
 - 视频（普通视频、番剧（影视）、收藏列表播放页）评论区
 - 话题评论区
@@ -32,15 +24,17 @@
 - 小黑屋评论区
 - 漫画详情页评论区
 
+> （未作特殊说明均支持新旧版）
+
 仅测试于 Chrome 113+ ([tampermonkey](https://github.com/Tampermonkey/tampermonkey)) / Safari 16.4+ ([Stay](https://github.com/shenruisi/Stay))。**需要使用支持 [unsafeWindow](https://www.tampermonkey.net/documentation.php#api:unsafeWindow) API 的脚本管理器**
 
 ## 常见问题
 
-- **个人主页的 IP 属地 没有显示？**
+- **为什么个人主页的 IP 属地没有显示？**
 
     - 由于个人主页 IP 属地需要使用 APP 接口，依赖于许多额外逻辑，目前单独实现了一个脚本，如有需要请前往 [Greasy Fork](https://greasyfork.org/scripts/534807) 或 [Github(maxchang3/userscripts)](https://github.com/maxchang3/userscripts/blob/main/BiliSpaceIPLocator/README.md) 安装。
 
-- **我的评论区没有显示 IP 属地？**
+- **为什么我的评论区没有显示 IP 属地？**
     - 请确定你所在的场景是否支持，脚本是否为最新版本，脚本是否正常运行。
     - Manifest V3 以来可能需要开启[开发者模式](https://www.tampermonkey.net/faq.php?locale=zh#Q209)才能正常运行。
     - 请关闭同页面内的其他相关脚本，排除脚本冲突的可能。
