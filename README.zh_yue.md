@@ -6,7 +6,7 @@
 # BiliReveal
 
 ![Greasy Fork 总下载量](https://img.shields.io/greasyfork/dt/466815?style=flat-square&color=444)
-[![普通話](https://img.shields.io/badge/docs-普通話-0078D4?style=flat-square)](README.md)
+[![普通話](https://img.shields.io/badge/文檔-普通話-0078D4?style=flat-square)](README.md)
 
 ![](https://img.shields.io/badge/安装方式:-777)
 [![用 Greasy Fork 安装](https://img.shields.io/badge/Greasy_Fork-7D160D)](https://greasyfork.org/scripts/466815) [![用 Github Release 安装](https://img.shields.io/badge/Github_Release-3D7D3F)](https://github.com/MaxChang3/Bilibili-Web-Show-IP-Location/releases/latest/download/bilibili-web-show-ip-location.user.js)
