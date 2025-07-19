@@ -3,8 +3,9 @@
 > 欢迎体验！
 > <kbd><a href="https://github.com/maxchang3/userscripts/blob/main/BiliSpaceIPLocator/README.md">BiliSpaceIPLocator</a></kbd>
 
+
 <p align="center">
-    <img src="./assets/banner.svg" width = "50%">
+    <img src="https://github.com/user-attachments/assets/095348fe-4179-4470-999e-4eadc5ef5ae7" width = "50%">
     <img src="./assets/preview.png" width = "50%">
 </p>
 
