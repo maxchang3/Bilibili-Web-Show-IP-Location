@@ -34,7 +34,7 @@
 
 - **点解个人主页嘅 IP 属地冇显示？**
 
-    - 因为个人主页 IP 属地要用 APP 接口，仲要好多额外逻辑，依家单独整咗个脚本，如果有需要请去 [Greasy Fork](https://greasyfork.org/scripts/534807) 或 [Github(maxchang3/userscripts)](https://github.com/maxchang3/userscripts/blob/main/BiliSpaceIPLocator/README.md) 安装。
+    - 因为个人主页 IP 属地要用 APP 接口，仲要好多额外逻辑，依家单独整咗个脚本，如果有需要请去 [Greasy Fork](https://greasyfork.org/scripts/534807) 或 [Github(maxchang3/userscripts)](https://github.com/maxchang3/userscripts/blob/main/BiliRevealForSpace/README.md) 安装。
 
 - **点解我评论区冇显示 IP 属地？**
     - 请确定你而家用紧嘅场景系咪支援，脚本系唔系最新，脚本有冇正常运行。
